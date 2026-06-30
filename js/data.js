@@ -168,6 +168,51 @@ const ACTIVITIES = [
     howToPlay: 'Vire as vasilhas com a boca para baixo. Esconda o brinquedinho embaixo de uma delas diante do bebê. Movimente levemente as vasilhas e peça para ele encontrar onde está o brinquedo.',
     skills: 'Ajuda a compreender a permanência do objeto, foco e atenção visual.' },
 
+  { id: 101, name: 'Dança das Cadeiras', age: '1-2a',
+    materials: 'Cadeiras (uma a menos que o número de participantes) e uma música animada.',
+    howToPlay: 'Coloque as cadeiras em círculo com os encostos para dentro. Ligue a música e todos caminham em volta. Quando a música parar, cada um corre para sentar numa cadeira. Com crianças de 1 a 2 anos, não precisa ter eliminação — o objetivo é só a movimentação e parar quando a música parar.',
+    skills: 'Estimula o controle inibitório, a atenção, o ritmo e a agilidade.' },
+
+  { id: 102, name: 'Telefone Sem Fio', age: '1-2a',
+    materials: 'Nenhum. Mínimo de 3 participantes.',
+    howToPlay: 'Sente todos em fila ou em círculo. A primeira pessoa sussurra uma palavra ou frase curta no ouvido do próximo, que repassa sussurrando para o seguinte. O último fala em voz alta o que ouviu e comparam com a palavra original. Com crianças pequenas, use palavras simples como nomes de animais.',
+    skills: 'Desenvolve a atenção auditiva, a linguagem e a memória de curto prazo.' },
+
+  { id: 103, name: 'Brincadeira do Espelho', age: '1-2a',
+    materials: 'Nenhum.',
+    howToPlay: 'Fique de frente para a criança e explique que ela é o seu espelho e deve fazer tudo que você fizer. Comece com movimentos simples e lentos — levantar um braço, abrir a boca, piscar um olho — e vá aumentando a complexidade aos poucos. Depois troque: a criança lidera e você copia.',
+    skills: 'Desenvolve a atenção sustentada, a imitação motora e a consciência corporal.' },
+
+  { id: 104, name: 'Jogo da Memória Caseiro', age: '1-2a',
+    materials: '10 a 12 cartões de papel cartão cortados em quadrados iguais e canetinhas ou adesivos.',
+    howToPlay: 'Desenhe ou cole pares de imagens simples nos cartões. Misture tudo e vire com a imagem para baixo. Na vez de cada um, vire dois cartões — se forem iguais, fica com o par e joga de novo; se forem diferentes, vira de volta e passa a vez. Com crianças de 1 a 2 anos, comece com apenas 4 cartões (2 pares) e aumente progressivamente.',
+    skills: 'Exercita a memória visual, a atenção e a concentração, além de ensinar a ideia de vez e turno.' },
+
+  { id: 105, name: 'Pintura com Esponja', age: '1-2a',
+    materials: 'Esponjas de cozinha novas, tesoura, tinta guache lavável e papel sulfite ou pardo.',
+    howToPlay: 'Corte as esponjas em formatos simples — estrela, círculo, coração. Coloque tinta num pratinho raso e mostre como apertar a esponja na tinta e carimbar no papel. Deixe a criança explorar livremente, misturando cores e carimbando onde quiser.',
+    skills: 'Estimula a criatividade, a expressão artística e a motricidade fina.' },
+
+  { id: 106, name: 'Contando Histórias com Fotos', age: '1-2a',
+    materials: 'Fotografias da família (impressas ou no celular) ou figurinhas de revista.',
+    howToPlay: 'Sente-se com a criança no colo. Mostre as fotos uma a uma e conte uma história simples sobre cada uma — quem é, onde está, o que está fazendo. Para figurinhas de revista, invente histórias junto. Deixe a criança apontar e "contar" também.',
+    skills: 'Desenvolve a linguagem, a sequência narrativa e estreita o vínculo afetivo.' },
+
+  { id: 107, name: 'Desafio da Sequência de Copos', age: '1-2a',
+    materials: '6 a 8 copos descartáveis coloridos (ou copos brancos coloridos com canetinha).',
+    howToPlay: 'Monte uma sequência de cores na frente da criança, por exemplo azul, vermelho, azul, vermelho. Peça para ela observar a ordem e tentar montar igual com os copos. Comece com sequências de 2 cores e 4 copos, aumentando a complexidade conforme ela acerta.',
+    skills: 'Estimula o raciocínio lógico, a memória visual e a noção de padrão e sequência.' },
+
+  { id: 108, name: 'Arte com Rolo de Papel', age: '1-2a',
+    materials: 'Rolos de papel higiênico vazios, tinta guache lavável, papel sulfite e canetinhas.',
+    howToPlay: 'Mergulhe a borda do rolo na tinta e carimbe no papel — o resultado é um círculo perfeito. Pode fazer grupos de círculos para virar borboletas, flores ou rostos de bicho. Depois de seco, adicione detalhes com canetinha.',
+    skills: 'Desenvolve a criatividade, a coordenação motora fina e a expressão artística.' },
+
+  { id: 109, name: 'Hóquei de Bexiga', age: '1-2a',
+    materials: 'Dois rolos de papel toalha (como tacos), uma bexiga cheia e dois gols improvisados com caixinhas de leite ou garrafinhas.',
+    howToPlay: 'Monte os gols nos dois extremos de um corredor ou sala. Sopre a bexiga e coloque no chão. Cada jogador pega um rolo de papel toalha e o objetivo é bater na bexiga mandando-a para o gol do adversário. Atenção: bexiga é indicada para maiores de 3 anos; para menores, substitua por uma bola de papel amassado.',
+    skills: 'Desenvolve a coordenação motora, a mira, o controle de força e a noção espacial.' },
+
   // 2 anos ou mais
   { id: 31, name: 'Boliche na Sala', age: '2+',
     materials: 'Garrafas de plástico vazias e uma bola.',
@@ -244,6 +289,16 @@ const ACTIVITIES = [
     howToPlay: 'Monte um vulcão com argila ou papelão. Coloque bicarbonato dentro e adicione vinagre com corante vermelho. Observe a reação acontecer.',
     skills: 'Curiosidade científica, causa e efeito, criatividade e vocabulário de ciências.' },
 
+  { id: 110, name: 'Raquete de Rolo com Bexiga', age: '2+',
+    materials: 'Um rolo de papel toalha por jogador e uma bexiga inflada.',
+    howToPlay: 'Amarre um barbante de 30 centímetros na bexiga inflada e prenda a outra ponta no rolo de papel toalha, dando um nó firme — o rolo vira uma raquete com a bexiga presa nela. O desafio é bater na bexiga com o rolo sem deixar que ela caia no chão. Pode competir para ver quem faz mais rebatidas seguidas.',
+    skills: 'Desenvolve a coordenação motora, o tempo de reação e o foco.' },
+
+  { id: 111, name: 'Avião de Papel', age: '2+',
+    materials: 'Folhas de papel sulfite.',
+    howToPlay: 'Mostre como dobrar um avião simples: dobre ao meio no sentido do comprimento, abra, dobre os dois cantos superiores para o centro formando um triângulo, dobre as bordas laterais para o centro novamente e dobre ao meio. Lance o avião e veja até onde vai. Façam vários aviões com diferentes dobras e comparem qual voa mais longe.',
+    skills: 'Desenvolve a motricidade fina, a noção intuitiva de aerodinâmica e a criatividade ao testar variações.' },
+
   // 3 anos ou mais
   { id: 46, name: 'Acampamento na Sala', age: '3+',
     materials: 'Lençóis, cadeiras ou sofás para apoio e almofadas.',
@@ -299,6 +354,56 @@ const ACTIVITIES = [
     materials: 'Uma lista de elementos para encontrar (folha maior, flor amarela, pedra pequena etc.).',
     howToPlay: 'Vá com as crianças ao parque ou pracinha e brinquem de caçar elementos da natureza conforme a lista. Nada de arrancar, só vale pegar o que já caiu.',
     skills: 'Observação, vocabulário, consciência ambiental e atenção ao detalhe.' },
+
+  { id: 112, name: 'Construção com Caixas de Papelão', age: '3+',
+    materials: 'Caixas de papelão de diferentes tamanhos, fita adesiva, tesoura sem ponta e canetinhas.',
+    howToPlay: 'Separe caixas de sapato, de cereal, de leite. Proponha um tema — uma casinha, um foguete, uma cidade. Ajude a montar a estrutura principal colando com fita adesiva, mas deixe a criança decidir onde ficam as janelas, as portas e as cores. A construção pode durar vários dias — não precisa terminar de uma vez.',
+    skills: 'Desenvolve a criatividade, o planejamento, a noção espacial e a motricidade fina ao recortar e colar.' },
+
+  { id: 113, name: 'Culinária Simples: Brigadeiro', age: '3+',
+    materials: '1 lata de leite condensado, 1 colher de sopa de manteiga, 4 colheres de sopa de achocolatado em pó e chocolate granulado para enrolar.',
+    howToPlay: 'Coloque o leite condensado, a manteiga e o achocolatado numa panela e misture antes de ligar o fogo, deixando a criança mexer. Leve ao fogo médio mexendo sem parar até desgrudar do fundo (cerca de 10 minutos). Desligue, coloque numa tigela untada e espere esfriar completamente. Com as mãos untadas de manteiga, deixe a criança enrolar as bolinhas e passar no granulado.',
+    skills: 'Desenvolve a autonomia, a motricidade fina ao enrolar, a noção de medidas e a atenção às etapas.' },
+
+  { id: 114, name: 'Brincadeira da Estátua com Variações', age: '3+',
+    materials: 'Música para tocar e uma forma de pausá-la.',
+    howToPlay: 'Toque a música e todos dançam livremente. Quando ela parar, o adulto grita um tipo de estátua — de animal, de robô, do jeito mais engraçado que conseguir. A cada parada o adulto escolhe a estátua mais criativa. Não precisa ter eliminação — o foco é na criatividade e no controle corporal.',
+    skills: 'Desenvolve o controle inibitório, a criatividade, a expressão corporal e a atenção ao estímulo auditivo.' },
+
+  { id: 115, name: 'Carimbo de Mãos e Pés', age: '3+',
+    materials: 'Tinta guache lavável em várias cores, papel pardo ou sulfite formando uma folha grande e um balde com água para lavar.',
+    howToPlay: 'Estenda o papel no chão ou numa mesa baixa. Coloque a tinta em pratinhos rasos, um por cor. A criança mergulha a mão aberta na tinta e carimba no papel — pode fazer o mesmo com os pés, com um adulto segurando para não escorregar. Juntas podem criar um mural: um sol de mãos abertas, flores de polegares, um campo de pezinhos.',
+    skills: 'Desenvolve a consciência corporal, a expressão artística e cria uma memória afetiva concreta.' },
+
+  { id: 116, name: 'Bingo de Figuras', age: '3+',
+    materials: 'Cartelas de bingo desenhadas à mão com 9 figuras cada (3x3) com imagens simples — sol, casa, cachorro, árvore, flor, bola, peixe, estrela, carro — e fichinhas para cobrir os quadros encontrados.',
+    howToPlay: 'O adulto sorteia as figuras gritando o nome em voz alta, podendo mostrar um desenho ou miniatura do objeto. Cada jogador procura a figura na sua cartela e cobre com uma fichinha se tiver. Quem completar uma fileira grita "Bingo!" Para crianças pequenas, vale completar a cartela inteira.',
+    skills: 'Desenvolve a atenção visual, o vocabulário e a correspondência entre palavra e imagem.' },
+
+  { id: 117, name: 'Jogo dos 3 Pontos', age: '3+',
+    materials: 'Objetos variados da casa em número par e giz ou fita crepe para marcar posições no chão.',
+    howToPlay: 'Marque um círculo no chão com os objetos espalhados no centro. Do lado de fora, marque um ponto para cada participante, todos à mesma distância do centro. Ao sinal, cada um vai ao centro pegar um objeto por vez e leva para o seu ponto. Quando o centro esvaziar, pode "roubar" um objeto do ponto de outro jogador, um de cada vez. Quem juntar 3 objetos no seu ponto primeiro ganha.',
+    skills: 'Desenvolve a estratégia, a agilidade e a tomada de decisão rápida.' },
+
+  { id: 118, name: 'Corrida de Obstáculos com Sacola', age: '3+',
+    materials: 'Uma sacola de compras para cada participante e obstáculos no chão (copos descartáveis, garrafinhas, rolinhos de papel) formando um zigue-zague.',
+    howToPlay: 'Alinhe os obstáculos no chão em zigue-zague, formando uma pista. Cada participante fica dentro da sua sacola segurando pelas alças. Ao sinal, todos se movem pelos obstáculos sem derrubá-los e sem sair da sacola. Quem derrubar um obstáculo volta ao início. Quem chegar primeiro ganha.',
+    skills: 'Desenvolve a coordenação motora, a agilidade e a noção espacial.' },
+
+  { id: 119, name: 'Jogo de Argolas Caseiro', age: '3+',
+    materials: '5 argolas feitas de papelão (círculos com um buraco no centro, como uma rosquinha) e um alvo: rolo de papel, garrafa pet ou pino de madeira.',
+    howToPlay: 'Coloque o alvo no chão ou apoiado numa base estável. Marque uma linha no chão com fita crepe, a 1 metro de distância para crianças pequenas e 2 metros para maiores. Cada jogador arremessa 5 argolas tentando enganchar no alvo, valendo 1 ponto por argola encaixada. Aumente a distância a cada rodada.',
+    skills: 'Desenvolve a coordenação olho-mão, o controle de força, a mira e a paciência.' },
+
+  { id: 120, name: 'Experimento Boia ou Afunda', age: '3+',
+    materials: 'Uma bacia grande com água e uma bandeja com objetos variados da casa: colher de metal, tampinha, borracha, palito de picolé, moeda, esponja, rolha, pedra.',
+    howToPlay: 'Antes de colocar qualquer objeto na água, peça que a criança faça uma hipótese — vai boiar ou afundar? Anote as respostas. Depois coloquem um objeto de cada vez na água e observem, comparando com o que foi previsto. Explique de forma simples que objetos mais densos que a água afundam e os menos densos flutuam.',
+    skills: 'Estimula a curiosidade científica, o raciocínio por hipótese e a observação.' },
+
+  { id: 121, name: 'Jogo dos Sinônimos', age: '3+',
+    materials: 'Nenhum.',
+    howToPlay: 'Explique que sinônimo é uma palavra diferente que significa a mesma coisa. Sentados em roda, o primeiro fala uma palavra, o próximo fala um sinônimo dela, e assim sucessivamente. Se alguém não souber ou repetir uma palavra já usada, passa a vez. Com crianças menores, dê dicas com a letra inicial. Para versão mais difícil, use antônimos.',
+    skills: 'Enriquece o vocabulário e estimula o pensamento abstrato e a linguagem expressiva.' },
 
   // 5 anos ou mais
   { id: 57, name: 'Amarelinha', age: '5+',
@@ -411,6 +516,56 @@ const ACTIVITIES = [
     howToPlay: 'Cada participante lista letras e palavras de antemão. No carro, vão marcando quando encontram as letras nas placas de outros veículos. Primeiro a completar ganha.',
     skills: 'Atenção, leitura, competição saudável e diversão em viagens.' },
 
+  { id: 122, name: 'Jogo dos 7 Erros Caseiro', age: '5+',
+    materials: 'Papel sulfite e lápis de cor.',
+    howToPlay: 'A criança desenha uma cena simples numa folha. Depois, em outra folha, copia o mesmo desenho mas muda 7 detalhes sutis. Troca com outra pessoa para encontrar as 7 diferenças. Quem achar todas primeiro ou em menos tempo ganha.',
+    skills: 'Estimula a atenção ao detalhe, a memória visual e a criatividade.' },
+
+  { id: 123, name: 'Culinária: Pizza de Frigideira', age: '5+',
+    materials: '1 xícara de farinha de trigo, 1 colher de chá de fermento em pó, 1 pitada de sal, 3 colheres de sopa de água e 1 colher de sopa de azeite. Para o recheio: molho de tomate, queijo e o que quiser.',
+    howToPlay: 'Misture a farinha, o fermento e o sal numa tigela. Adicione o azeite e a água e amasse até formar uma bolinha de massa. Abra num disco fino e coloque na frigideira antiaderente fria, tampe e leve ao fogo baixo por 5 minutos. Vire, adicione o molho, o queijo e o recheio, tampe de novo e espere o queijo derreter.',
+    skills: 'Desenvolve a autonomia, a motricidade fina, noções de medida e a satisfação de criar algo para comer.' },
+
+  { id: 124, name: 'Montagem de Maquete', age: '5+',
+    materials: 'Caixinhas de fósforo, rolinhos de papel higiênico, papelão, tinta guache, palitos, cola e tesoura sem ponta.',
+    howToPlay: 'Proponha um tema — uma cidade, uma fazenda. Não dê um passo a passo: deixe a criança planejar o que vai construir, oferecendo os materiais e ajudando só quando ela pedir. O processo pode durar mais de uma sessão.',
+    skills: 'Estimula o planejamento espacial, a criatividade e a capacidade de sustentar um projeto ao longo do tempo.' },
+
+  { id: 125, name: 'Brincadeira de Loja', age: '5+',
+    materials: 'Produtos da cozinha ou brinquedos para vender, papéis cortados como cédulas e moedas improvisadas.',
+    howToPlay: 'Montem a loja juntos: organize os produtos em prateleiras e faça etiquetas de preço com números simples. Distribua dinheiro de mentira para os "compradores". A criança pode ser a vendedora, anotando as compras e calculando o troco. Depois troquem os papéis.',
+    skills: 'Ensina matemática prática (soma, subtração, troco) e o jogo simbólico.' },
+
+  { id: 126, name: 'Desenho Colaborativo', age: '5+',
+    materials: 'Uma folha de papel sulfite e lápis de cor.',
+    howToPlay: 'Dobre a folha em quatro partes. A primeira pessoa desenha uma cabeça no topo e dobra para esconder, deixando só a marca do pescoço. O próximo desenha o tronco sem ver a cabeça, dobra e passa adiante para as pernas e os pés. Abram juntos para ver o ser misterioso criado.',
+    skills: 'Estimula a criatividade, a flexibilidade cognitiva e a capacidade de criar sem controlar o resultado.' },
+
+  { id: 127, name: 'Criação de Livro de Histórias', age: '5+',
+    materials: '5 a 6 folhas de papel sulfite dobradas ao meio e grampeadas no centro formando um livrinho, lápis de cor e caneta.',
+    howToPlay: 'Ajude a criança a planejar a história antes de começar: quem é o personagem, onde acontece, como termina. Ela distribui a história pelas páginas, cada uma com ilustração e frase (pode ditar se ainda não escreve bem). Façam uma capa com título e nome da autora e reservem um momento para "ler" o livro para a família.',
+    skills: 'Estimula a narrativa sequencial, a lógica de início-meio-fim e a escrita inicial.' },
+
+  { id: 128, name: 'Desafio dos Copos Colaborativo com Elástico', age: '5+',
+    materials: '6 a 10 copos descartáveis, 1 elástico de escritório e 4 pedaços de barbante de 30 centímetros cada.',
+    howToPlay: 'Amarre cada pedaço de barbante em um ponto do elástico, espaçados igualmente — um barbante por participante (2 a 4 pessoas). Para pegar um copo, todos puxam o barbante ao mesmo tempo para abrir o elástico, posicionam sobre o copo, afrouxam para fechar e erguem. O objetivo é empilhar todos os copos sem usar as mãos, só o elástico e o barbante.',
+    skills: 'Estimula o trabalho em equipe, a comunicação e a coordenação.' },
+
+  { id: 129, name: 'Frase Oculta com Código', age: '5+',
+    materials: 'Papel e lápis.',
+    howToPlay: 'Crie juntos um código secreto substituindo cada letra do alfabeto por um número (A=1, B=2, C=3...). Escreva uma frase no código e passe para a outra pessoa decifrar usando a tabela. Depois ela cria uma mensagem secreta para você decifrar. Podem usar o código para deixar bilhetinhos pela casa.',
+    skills: 'Estimula o raciocínio lógico, a escrita e é uma introdução natural à lógica computacional.' },
+
+  { id: 130, name: 'Jogo Verbal: História Coletiva', age: '5+',
+    materials: 'Nenhum.',
+    howToPlay: 'Sente em roda. A primeira pessoa começa uma história fantasiosa e a próxima continua acrescentando uma frase, e assim por diante. Não pode encerrar a história antes de todos falarem pelo menos três vezes; quando estiver chegando ao fim, o próximo deve acrescentar uma reviravolta antes de encerrar.',
+    skills: 'Desenvolve a linguagem, a criatividade, a escuta ativa e a cooperação.' },
+
+  { id: 131, name: 'Matemática Come-Come', age: '5+',
+    materials: 'Papel, caneta e um dado.',
+    howToPlay: 'Desenhe numa folha uma cobra com escamas numeradas de 1 a 20. Coloque uma peça na escama 1. Role o dado e mova a peça o número de casas indicado; ao chegar numa escama, a criança fala o número em voz alta e faz a soma ("Estava no 4, andei 3, agora estou no 7!"). Para versão avançada, use subtração nos números pares.',
+    skills: 'Ensina matemática de forma lúdica e desenvolve o raciocínio numérico.' },
+
   // 7 anos ou mais
   { id: 79, name: 'Caligrafia', age: '7+',
     materials: 'Papel com pauta ou caderno de caligrafia e lápis.',
@@ -486,6 +641,51 @@ const ACTIVITIES = [
     materials: 'Enigmas preparados com antecedência, cadeados ou pistas escondidas, cronômetro.',
     howToPlay: 'Monte uma sequência de enigmas em um cômodo. A família tem um tempo para resolver todos e "escapar". Pode usar código de números, charadinhas e objetos escondidos.',
     skills: 'Raciocínio lógico, trabalho em equipe, resolução de problemas e comunicação.' },
+
+  { id: 132, name: 'Xadrez ou Dama', age: '7+',
+    materials: 'Um tabuleiro de xadrez ou dama — pode ser impresso em papel se não tiver.',
+    howToPlay: 'Para a dama: cada jogador coloca suas peças nas três primeiras fileiras do próprio lado, nas casas escuras. As peças se movem na diagonal, sempre para frente, capturando a peça adversária ao saltar por cima. Ao chegar ao outro lado, a peça vira "dama" e pode andar para todos os lados. Comece pela dama antes do xadrez, pois as regras são mais simples.',
+    skills: 'Estimula o raciocínio estratégico, o planejamento antecipado e a concentração.' },
+
+  { id: 133, name: 'Foguete de Canudo', age: '7+',
+    materials: 'Folha de papel sulfite, fita adesiva, tesoura, um lápis e um canudo.',
+    howToPlay: 'Enrole o papel firmemente ao redor do lápis formando um tubo e cole as bordas com fita. Retire o lápis e feche uma das pontas do tubo amassando e colando. Recorte três aletas triangulares de papel e cole na ponta aberta formando o "motor". Insira o canudo dentro do foguete pela ponta aberta e sopre forte para fazê-lo decolar. Compitam para ver qual voa mais longe.',
+    skills: 'Estimula a criatividade, a motricidade fina e a noção intuitiva de aerodinâmica.' },
+
+  { id: 134, name: 'História em Quadrinhos', age: '7+',
+    materials: 'Papel sulfite, lápis de cor e caneta.',
+    howToPlay: 'Dobre a folha em 8 partes formando 8 quadros, cada um uma cena da história. Planeje com a criança quem são os personagens e o que acontece em cada quadro. Depois ela desenha as cenas e escreve o diálogo nos balões — o importante é a sequência narrativa fazer sentido.',
+    skills: 'Estimula a narrativa sequencial, a expressão artística e a linguagem escrita.' },
+
+  { id: 135, name: 'Torneio de Jogos de Carta', age: '7+',
+    materials: 'Um baralho comum de 52 cartas.',
+    howToPlay: 'Escolham um jogo e façam um torneio com 5 partidas. Na Pescaria, distribua 7 cartas para cada um; na vez de cada jogador, pergunte ao adversário se tem uma carta específica — se tiver, entrega, senão "pesca" do monte. Ganha quem tiver mais pares. Há outras versões, como a Escopa, que podem pesquisar juntos antes.',
+    skills: 'Estimula a estratégia, a memória, o raciocínio e a socialização.' },
+
+  { id: 136, name: 'Jornal da Família', age: '7+',
+    materials: 'Folhas de papel A4 dobradas ao meio formando um caderno, caneta, canetinha e régua.',
+    howToPlay: 'A criança é a repórter-chefe. Definam seções como notícias da semana, entrevista com um familiar, previsão do tempo da família e piadas. Ela entrevista os familiares, redige as matérias, faz os títulos e ilustra. Mostrem o resultado para todos.',
+    skills: 'Estimula a escrita com função real, a pesquisa e a organização de ideias.' },
+
+  { id: 137, name: 'Coreografia em Família', age: '7+',
+    materials: 'Uma música escolhida em família e um celular para gravar.',
+    howToPlay: 'Escolham juntos uma música. Cada pessoa cria 2 movimentos para a coreografia, não precisa ser dança profissional. Anotem a sequência de quem faz o quê e repitam juntos até memorizar. Ensaiem algumas vezes e gravem o resultado.',
+    skills: 'Estimula o ritmo, a memória sequencial, a expressão corporal e a cooperação.' },
+
+  { id: 138, name: 'Detetive com Impressão Digital', age: '7+',
+    materials: 'Papel sulfite, almofada de carimbo com tinta, um copo de vidro limpo, chocolate em pó, pincel de maquiagem fino, fita adesiva transparente e caneta.',
+    howToPlay: 'Crie o banco de suspeitos: cada morador da casa carimba o polegar na almofada de tinta no papel, com o nome ao lado. Invente um "crime" e escolha em segredo um suspeito que deixa a digital num copo. A criança detetive polvilha chocolate em pó sobre o copo, sopra o excesso para revelar a digital, cola fita sobre ela para transferir ao papel e compara com o banco de suspeitos.',
+    skills: 'Estimula o raciocínio lógico, a observação científica e a atenção ao detalhe.' },
+
+  { id: 139, name: 'Debate Cronometrado', age: '7+',
+    materials: 'Nenhum. Um cronômetro no celular.',
+    howToPlay: 'Escrevam temas simples em papéis, como "Cachorro é melhor que gato". Sorteiem o tema e o lado que cada um vai defender, mesmo que não concorde. Cada um tem 2 minutos para argumentar e o restante da família vota em quem argumentou melhor. O objetivo não é "ganhar", mas treinar defender um ponto de vista com argumentos.',
+    skills: 'Desenvolve a argumentação, o vocabulário e o pensamento crítico.' },
+
+  { id: 140, name: 'Cartão-Postal Real', age: '7+',
+    materials: 'Cartolina cortada em retângulo de 10x15 cm, canetinhas e o endereço de um parente ou amigo.',
+    howToPlay: 'A criança decora a frente do cartão como quiser. No verso, divide com uma linha: de um lado escreve uma mensagem, do outro o endereço do destinatário, e cola um selo. Vão juntos ao correio postar o cartão — a espera pela resposta faz parte da brincadeira.',
+    skills: 'Estimula a escrita com função social real e introduz o conceito de comunicação à distância.' },
 
   // Viagem
   { id: 94, name: 'Charadinhas (Viagem)', age: 'viagem',
