@@ -232,19 +232,6 @@
   </div>
 </div>
 
-<!-- ── Activity Picker (for entry editor) ── -->
-<div class="modal-overlay" id="picker-modal">
-  <div class="modal-sheet relative">
-    <div class="modal-handle"></div>
-    <button class="modal-close modal-close-btn" data-modal="picker-modal">×</button>
-    <div class="modal-body">
-      <div class="modal-title" style="font-size:18px;margin-bottom:14px;">Buscar atividade</div>
-      <input class="picker-search" id="picker-search" type="search" placeholder="Buscar..." autocomplete="off">
-      <div class="picker-list" id="picker-list"></div>
-    </div>
-  </div>
-</div>
-
 <!-- ── Week Picker (choose day for activity from detail modal) ── -->
 <div class="modal-overlay" id="week-picker-modal">
   <div class="modal-sheet relative">
@@ -258,35 +245,6 @@
         <button class="week-nav-btn" id="wp-next">›</button>
       </div>
       <div id="wp-days" style="display:flex;flex-direction:column;gap:8px;"></div>
-    </div>
-  </div>
-</div>
-
-<!-- ── Entry Editor Modal ── -->
-<div class="modal-overlay" id="entry-editor-modal">
-  <div class="modal-sheet relative">
-    <div class="modal-handle"></div>
-    <button class="modal-close modal-close-btn" data-modal="entry-editor-modal">×</button>
-    <div class="modal-body">
-      <div class="modal-title" id="entry-editor-title">Nova atividade</div>
-
-      <div class="entry-form">
-        <label class="entry-label" for="entry-time-input">Horário</label>
-        <input type="time" class="entry-time-input" id="entry-time-input" value="09:00">
-
-        <label class="entry-label" for="entry-text-input">O que vai fazer?</label>
-        <input type="text" class="entry-text-input" id="entry-text-input"
-               placeholder="Ex: Almoço, parque, massinha..." autocomplete="off">
-
-        <button class="entry-pick-btn" id="entry-pick-activity-btn">
-          🎮 Buscar no Guia de Atividades
-        </button>
-      </div>
-
-      <div class="entry-actions">
-        <button class="entry-cancel-btn modal-close-btn" data-modal="entry-editor-modal">Cancelar</button>
-        <button class="entry-save-btn" id="entry-save-btn">Salvar</button>
-      </div>
     </div>
   </div>
 </div>

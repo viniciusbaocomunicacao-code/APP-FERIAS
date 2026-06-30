@@ -54,11 +54,11 @@ function genId() { return Date.now().toString(36) + Math.random().toString(36).s
 
 // ── localStorage ───────────────────────────────────────
 function loadPlanner() {
-  try { state.plannerData = JSON.parse(localStorage.getItem('guia-ferias-v2') || '{}'); }
+  try { state.plannerData = JSON.parse(localStorage.getItem('guia-ferias-rotina') || '{}'); }
   catch { state.plannerData = {}; }
 }
 function savePlanner() {
-  localStorage.setItem('guia-ferias-v2', JSON.stringify(state.plannerData));
+  localStorage.setItem('guia-ferias-rotina', JSON.stringify(state.plannerData));
 }
 
 // ── Init ───────────────────────────────────────────────
@@ -169,6 +169,18 @@ function bindPlannerTab() {
 }
 
 // ── Week View ──────────────────────────────────────────
+function countCompletedBlocks(key) {
+  const dayData = state.plannerData[key] || {};
+  return ROUTINE_BLOCKS.filter(b => {
+    const bd = dayData[b.id];
+    if (!bd) return false;
+    return b.fields.some(f => {
+      const v = bd[f.id];
+      return v && (Array.isArray(v) ? v.length > 0 : String(v).trim() !== '');
+    });
+  }).length;
+}
+
 function renderPlannerWeek() {
   state.plannerView = 'week';
   document.getElementById('planner-week-nav').style.display = '';
@@ -181,15 +193,13 @@ function renderPlannerWeek() {
 
   const container = document.getElementById('planner-content');
   container.innerHTML = days.map(d => {
-    const key     = dateKey(d);
-    const entries = state.plannerData[key] || [];
+    const key      = dateKey(d);
     const todayCls = isToday(d) ? ' today' : '';
-    const count    = entries.length;
-    const preview  = count === 0
-      ? '<span class="week-row-empty">Vazio — toque para planejar</span>'
-      : entries.slice().sort((a,b) => a.time.localeCompare(b.time)).slice(0,2)
-               .map(e => `<span class="week-row-chip">${e.time} ${e.text}</span>`).join('') +
-        (count > 2 ? `<span class="week-row-chip more">+${count-2}</span>` : '');
+    const done     = countCompletedBlocks(key);
+    const total    = ROUTINE_BLOCKS.length;
+    const preview  = done === 0
+      ? '<span class="week-row-empty">Toque para registrar o dia</span>'
+      : `<span class="week-row-chip">${done} de ${total} momentos registrados</span>`;
 
     return `<button class="planner-week-row${todayCls}" data-date="${key}">
       <div class="pwd-left">
@@ -221,132 +231,171 @@ function openDayView(dateStr) {
 }
 
 function renderDayView() {
-  const entries = (state.plannerData[state.plannerDate] || [])
-    .slice().sort((a,b) => a.time.localeCompare(b.time));
+  const dayData  = state.plannerData[state.plannerDate] || {};
+  const done     = countCompletedBlocks(state.plannerDate);
+  const total    = ROUTINE_BLOCKS.length;
+  const container = document.getElementById('planner-content');
 
-  // group by hour bucket
-  const byHour = {};
-  entries.forEach(e => {
-    const h = e.time.slice(0,2) + ':00';
-    (byHour[h] = byHour[h] || []).push(e);
+  container.innerHTML = `
+    <div class="routine-progress-bar">
+      <div class="routine-progress-fill" style="width:${Math.round(done/total*100)}%"></div>
+    </div>
+    <div class="routine-progress-label">${done} de ${total} momentos registrados</div>
+    <div class="routine-blocks">
+      ${ROUTINE_BLOCKS.map(block => renderRoutineBlock(block, dayData[block.id])).join('')}
+    </div>`;
+
+  container.querySelectorAll('.block-header').forEach(header => {
+    header.addEventListener('click', () => toggleBlock(header.closest('.routine-block-card')));
   });
 
-  const container = document.getElementById('planner-content');
-  container.innerHTML = `
-    <div class="day-timeline">
-      ${HOURS.map(hour => {
-        const hrs = byHour[hour] || [];
-        const hasEntries = hrs.length > 0;
-        return `<div class="timeline-row${hasEntries ? ' has-entries' : ''}">
-          <div class="tl-time">${hour}</div>
-          <div class="tl-body">
-            ${hrs.map(e => `
-              <div class="tl-entry" data-id="${e.id}">
-                <div class="tl-entry-inner">
-                  <span class="tl-entry-time">${e.time}</span>
-                  <span class="tl-entry-text">${e.text}</span>
-                </div>
-                <div class="tl-entry-actions">
-                  <button class="tl-btn-edit" data-id="${e.id}">✎</button>
-                  <button class="tl-btn-del"  data-id="${e.id}">×</button>
-                </div>
-              </div>`).join('')}
-            <button class="tl-add-slot" data-hour="${hour}">+ adicionar</button>
-          </div>
-        </div>`;
-      }).join('')}
+  container.querySelectorAll('.block-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const fieldType = chip.dataset.type;
+      if (fieldType === 'chips') {
+        chip.closest('.block-chips-row').querySelectorAll('.block-chip').forEach(c => c.classList.remove('active'));
+      }
+      chip.classList.toggle('active');
+      autoSaveBlock(chip.closest('.routine-block-card').dataset.blockId);
+    });
+  });
+
+  container.querySelectorAll('.block-text-input, .block-field-time').forEach(input => {
+    input.addEventListener('change', () => {
+      autoSaveBlock(input.closest('.routine-block-card').dataset.blockId);
+    });
+  });
+
+  container.querySelectorAll('.block-time-main').forEach(input => {
+    input.addEventListener('change', () => {
+      const card = input.closest('.routine-block-card');
+      const blockId = card.dataset.blockId;
+      card.querySelector('.block-time-display').textContent = input.value;
+      autoSaveBlock(blockId);
+    });
+  });
+}
+
+function renderRoutineBlock(block, savedData) {
+  const bd = savedData || {};
+  const isCompleted = block.fields.some(f => {
+    const v = bd[f.id];
+    return v && (Array.isArray(v) ? v.length > 0 : String(v).trim() !== '');
+  });
+  const time = bd.time || block.timeDefault;
+
+  return `<div class="routine-block-card${isCompleted ? ' completed' : ''}" data-block-id="${block.id}">
+    <div class="block-header">
+      <div class="block-header-left">
+        <span class="block-emoji">${block.emoji}</span>
+        <div class="block-info">
+          <div class="block-name">${block.name}${block.optional ? ' <span class="block-optional">opcional</span>' : ''}</div>
+          <span class="block-time-display">${time}</span>
+        </div>
+      </div>
+      <div class="block-header-right">
+        ${isCompleted ? '<span class="block-done-badge">✓</span>' : ''}
+        <span class="block-chevron">›</span>
+      </div>
+    </div>
+    <div class="block-body">
+      <div class="block-field">
+        <label class="block-field-label">Horário</label>
+        <input type="time" class="block-time-main" value="${time}">
+      </div>
+      ${block.fields.map(f => renderBlockField(f, bd)).join('')}
+    </div>
+  </div>`;
+}
+
+function renderBlockField(field, bd) {
+  if (field.type === 'chips' || field.type === 'chips-multi') {
+    const sel = field.type === 'chips'
+      ? (bd[field.id] ? [bd[field.id]] : [])
+      : (bd[field.id] || []);
+    const chips = field.options.map(opt =>
+      `<button class="block-chip${sel.includes(opt) ? ' active' : ''}" data-field="${field.id}" data-val="${opt}" data-type="${field.type}">${opt}</button>`
+    ).join('');
+    return `<div class="block-field">
+      <label class="block-field-label">${field.label}</label>
+      <div class="block-chips-row">${chips}</div>
     </div>`;
-
-  // events
-  container.querySelectorAll('.tl-add-slot').forEach(btn =>
-    btn.addEventListener('click', () => openEntryEditor(state.plannerDate, btn.dataset.hour))
-  );
-  container.querySelectorAll('.tl-btn-edit').forEach(btn =>
-    btn.addEventListener('click', () => {
-      const e = entries.find(x => x.id === btn.dataset.id);
-      if (e) openEntryEditor(state.plannerDate, e.time, e);
-    })
-  );
-  container.querySelectorAll('.tl-btn-del').forEach(btn =>
-    btn.addEventListener('click', () => deleteEntry(state.plannerDate, btn.dataset.id))
-  );
-}
-
-function deleteEntry(dateStr, id) {
-  if (!state.plannerData[dateStr]) return;
-  state.plannerData[dateStr] = state.plannerData[dateStr].filter(e => e.id !== id);
-  savePlanner();
-  renderDayView();
-}
-
-// ── Entry Editor Modal ─────────────────────────────────
-function openEntryEditor(dateStr, time, existing = null) {
-  state.editingEntry = { date: dateStr, entry: existing };
-  document.getElementById('entry-editor-title').textContent = existing ? 'Editar atividade' : 'Nova atividade';
-  document.getElementById('entry-time-input').value         = existing ? existing.time : (time || '09:00');
-  document.getElementById('entry-text-input').value         = existing ? existing.text : '';
-  document.getElementById('entry-text-input').dataset.activityId = existing?.activityId || '';
-  openOverlay('entry-editor-modal');
-  setTimeout(() => document.getElementById('entry-text-input').focus(), 300);
-}
-
-function saveEntry() {
-  const time       = document.getElementById('entry-time-input').value || '09:00';
-  const text       = document.getElementById('entry-text-input').value.trim();
-  const actIdRaw   = document.getElementById('entry-text-input').dataset.activityId;
-  const activityId = actIdRaw ? parseInt(actIdRaw) : null;
-
-  if (!text) { showToast('Digite o nome da atividade!'); return; }
-
-  const { date, entry } = state.editingEntry;
-  if (!state.plannerData[date]) state.plannerData[date] = [];
-
-  if (entry) {
-    const idx = state.plannerData[date].findIndex(e => e.id === entry.id);
-    if (idx !== -1) state.plannerData[date][idx] = { ...entry, time, text, activityId };
-  } else {
-    state.plannerData[date].push({ id: genId(), time, text, activityId });
   }
-
-  savePlanner();
-  closeOverlay('entry-editor-modal');
-  renderDayView();
-}
-
-// ── Activity Picker (for entry editor) ────────────────
-function openPickerForEntry() {
-  state.pickerForEntry = true;
-  state.pickerSearch   = '';
-  document.getElementById('picker-search').value = '';
-  renderPickerList('');
-  openOverlay('picker-modal');
-  setTimeout(() => document.getElementById('picker-search').focus(), 300);
-}
-
-// ── Activity Picker (for planner add btn + entry) ─────
-function openPicker(dateStr) {
-  state.pickerDate     = dateStr;
-  state.pickerForEntry = false;
-  state.pickerSearch   = '';
-  document.getElementById('picker-search').value = '';
-  renderPickerList('');
-  openOverlay('picker-modal');
-  setTimeout(() => document.getElementById('picker-search').focus(), 300);
-}
-
-function renderPickerList(q) {
-  const query    = q.toLowerCase().trim();
-  const filtered = ACTIVITIES.filter(a =>
-    !query || a.name.toLowerCase().includes(query) ||
-    AGE_GROUPS.find(g => g.key === a.age)?.label.toLowerCase().includes(query)
-  );
-  document.getElementById('picker-list').innerHTML = filtered.map(a => {
-    const label = AGE_GROUPS.find(g => g.key === a.age)?.label || a.age;
-    return `<div class="picker-item" data-id="${a.id}" data-name="${a.name}">
-      <span class="picker-item-name">${a.name}</span>
-      <span class="picker-item-age">${label}</span>
+  if (field.type === 'text') {
+    return `<div class="block-field">
+      <label class="block-field-label">${field.label}</label>
+      <input type="text" class="block-text-input" data-field="${field.id}" value="${bd[field.id] || ''}" placeholder="${field.placeholder || ''}">
     </div>`;
-  }).join('');
+  }
+  if (field.type === 'time') {
+    return `<div class="block-field">
+      <label class="block-field-label">${field.label}</label>
+      <input type="time" class="block-field-time" data-field="${field.id}" value="${bd[field.id] || ''}">
+    </div>`;
+  }
+  return '';
+}
+
+function toggleBlock(card) {
+  const isOpen = card.classList.contains('open');
+  card.classList.toggle('open', !isOpen);
+  card.querySelector('.block-chevron').style.transform = isOpen ? '' : 'rotate(90deg)';
+}
+
+function autoSaveBlock(blockId) {
+  const card  = document.querySelector(`.routine-block-card[data-block-id="${blockId}"]`);
+  const block = ROUTINE_BLOCKS.find(b => b.id === blockId);
+  if (!card || !block) return;
+
+  const bd = {};
+  const timeMain = card.querySelector('.block-time-main');
+  if (timeMain) bd.time = timeMain.value;
+
+  block.fields.forEach(f => {
+    if (f.type === 'chips') {
+      const a = card.querySelector(`.block-chip[data-field="${f.id}"].active`);
+      if (a) bd[f.id] = a.dataset.val;
+    } else if (f.type === 'chips-multi') {
+      bd[f.id] = Array.from(card.querySelectorAll(`.block-chip[data-field="${f.id}"].active`)).map(c => c.dataset.val);
+    } else if (f.type === 'text') {
+      const inp = card.querySelector(`input.block-text-input[data-field="${f.id}"]`);
+      if (inp) bd[f.id] = inp.value;
+    } else if (f.type === 'time') {
+      const inp = card.querySelector(`input.block-field-time[data-field="${f.id}"]`);
+      if (inp) bd[f.id] = inp.value;
+    }
+  });
+
+  if (!state.plannerData[state.plannerDate]) state.plannerData[state.plannerDate] = {};
+  state.plannerData[state.plannerDate][blockId] = bd;
+  savePlanner();
+
+  const isCompleted = block.fields.some(f => {
+    const v = bd[f.id];
+    return v && (Array.isArray(v) ? v.length > 0 : String(v).trim() !== '');
+  });
+  card.classList.toggle('completed', isCompleted);
+  const doneBadge = card.querySelector('.block-done-badge');
+  const rightEl   = card.querySelector('.block-header-right');
+  if (isCompleted && !doneBadge) rightEl.insertAdjacentHTML('afterbegin', '<span class="block-done-badge">✓</span>');
+  else if (!isCompleted && doneBadge) doneBadge.remove();
+
+  // Update progress bar
+  const done  = countCompletedBlocks(state.plannerDate);
+  const total = ROUTINE_BLOCKS.length;
+  const bar   = document.querySelector('.routine-progress-fill');
+  const label = document.querySelector('.routine-progress-label');
+  if (bar)   bar.style.width   = `${Math.round(done/total*100)}%`;
+  if (label) label.textContent = `${done} de ${total} momentos registrados`;
+}
+
+function prefillActivityBlock(dateStr, activityName) {
+  if (!state.plannerData[dateStr]) state.plannerData[dateStr] = {};
+  const h = new Date().getHours();
+  const blockId = h < 12 ? 'ativ-manha' : 'ativ-tarde';
+  const existing = state.plannerData[dateStr][blockId] || {};
+  state.plannerData[dateStr][blockId] = { ...existing, desc: activityName, tipo: 'Do guia' };
+  savePlanner();
 }
 
 // ── Week Picker (for "Add to Planner" from activity) ──
@@ -366,12 +415,12 @@ function renderWeekPickerDays() {
     `${first.getDate()} ${MONTH_NAMES[first.getMonth()]} – ${last.getDate()} ${MONTH_NAMES[last.getMonth()]}`;
 
   document.getElementById('wp-days').innerHTML = days.map(d => {
-    const key = dateKey(d);
-    const cnt = (state.plannerData[key] || []).length;
+    const key  = dateKey(d);
+    const done = countCompletedBlocks(key);
     return `<button class="wp-day-btn${isToday(d) ? ' today' : ''}" data-date="${key}">
       <span class="wp-day-name">${DAY_NAMES[d.getDay()]}</span>
       <span class="wp-day-date">${d.getDate()}</span>
-      <span class="wp-day-count">${cnt ? cnt + ' item' + (cnt>1?'s':'') : 'Vazio'}</span>
+      <span class="wp-day-count">${done ? done + ' momentos' : 'Vazio'}</span>
     </button>`;
   }).join('');
 
@@ -379,16 +428,10 @@ function renderWeekPickerDays() {
     btn.addEventListener('click', () => {
       closeOverlay('week-picker-modal');
       const a = ACTIVITIES.find(x => x.id === state.activeActivityId);
-      state.pickerForEntry = false;
-      // Navigate to the day view and open entry editor pre-filled
+      if (a) prefillActivityBlock(btn.dataset.date, a.name);
       switchTab('planner');
       openDayView(btn.dataset.date);
-      openEntryEditor(btn.dataset.date, '09:00', {
-        id: null, time: '09:00', text: a?.name || '', activityId: a?.id || null,
-      });
-      // Mark as new (no id)
-      state.editingEntry.entry = null;
-      document.getElementById('entry-text-input').dataset.activityId = a?.id || '';
+      showToast(`"${a?.name}" adicionado à rotina do dia ✓`);
     })
   );
 }
@@ -481,40 +524,10 @@ function bindModals() {
   document.getElementById('wp-prev').addEventListener('click', () => { weekPickerOffset--; renderWeekPickerDays(); });
   document.getElementById('wp-next').addEventListener('click', () => { weekPickerOffset++; renderWeekPickerDays(); });
 
-  // Activity picker search
-  document.getElementById('picker-search').addEventListener('input', e => renderPickerList(e.target.value));
-
-  // Activity picker item click
-  document.getElementById('picker-list').addEventListener('click', e => {
-    const item = e.target.closest('.picker-item');
-    if (!item) return;
-    const id   = parseInt(item.dataset.id);
-    const name = item.dataset.name;
-    closeOverlay('picker-modal');
-    if (state.pickerForEntry) {
-      // Fill entry editor
-      document.getElementById('entry-text-input').value               = name;
-      document.getElementById('entry-text-input').dataset.activityId  = id;
-    }
-  });
-
-  // Entry editor — pick from app
-  document.getElementById('entry-pick-activity-btn').addEventListener('click', () => {
-    openPickerForEntry();
-  });
-
-  // Entry editor — save
-  document.getElementById('entry-save-btn').addEventListener('click', saveEntry);
-
   // Escape key
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape')
       document.querySelectorAll('.modal-overlay.open').forEach(el => closeOverlay(el.id));
-  });
-
-  // Enter key in entry text
-  document.getElementById('entry-text-input').addEventListener('keydown', e => {
-    if (e.key === 'Enter') saveEntry();
   });
 }
 

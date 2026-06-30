@@ -3004,3 +3004,156 @@ const BADGES = [
   { key: 'Curiosidade Científica',         emoji: '🔬', color: '#42A5F5' },
   { key: 'Inteligência Emocional',         emoji: '💙', color: '#EC407A' },
 ];
+
+const ROUTINE_BLOCKS = [
+  {
+    id: 'acordar',
+    emoji: '🌅',
+    name: 'Acordar',
+    timeDefault: '07:00',
+    fields: [
+      { id: 'humor', label: 'Como acordou?', type: 'chips',
+        options: ['Bem-disposto', 'Precisou de calma', 'Agitado', 'Chorou ao acordar'] },
+      { id: 'notes', label: 'Observações', type: 'text', placeholder: 'Como foi o acordar hoje...' }
+    ]
+  },
+  {
+    id: 'higiene',
+    emoji: '🪥',
+    name: 'Higiene matinal',
+    timeDefault: '07:30',
+    fields: [
+      { id: 'feito', label: 'O que fez?', type: 'chips-multi',
+        options: ['Escovação', 'Rosto', 'Troca de roupa', 'Fralda / banheiro'] },
+      { id: 'humor', label: 'Como foi?', type: 'chips',
+        options: ['Tranquilo', 'Resistiu', 'Precisou de ajuda', 'Fez sozinho'] }
+    ]
+  },
+  {
+    id: 'cafe',
+    emoji: '🍳',
+    name: 'Café da manhã',
+    timeDefault: '08:00',
+    fields: [
+      { id: 'como', label: 'Como foi?', type: 'chips',
+        options: ['Comeu bem', 'Comeu pouco', 'Recusou', 'Pediu mais'] },
+      { id: 'oque', label: 'O que comeu?', type: 'text', placeholder: 'Ex: fruta, ovo, pão...' }
+    ]
+  },
+  {
+    id: 'ativ-manha',
+    emoji: '🎮',
+    name: 'Atividade da manhã',
+    timeDefault: '09:00',
+    fields: [
+      { id: 'tipo', label: 'Tipo de atividade', type: 'chips',
+        options: ['Brincadeira livre', 'Ao ar livre', 'Criativa', 'Leitura', 'Do guia', 'Sensorial', 'Musical'] },
+      { id: 'desc', label: 'O que fizeram?', type: 'text', placeholder: 'Descreva a atividade...' },
+      { id: 'duracao', label: 'Duração', type: 'chips',
+        options: ['15 min', '30 min', '45 min', '1 hora', 'Mais de 1h'] }
+    ]
+  },
+  {
+    id: 'almoco',
+    emoji: '🥗',
+    name: 'Almoço',
+    timeDefault: '12:00',
+    fields: [
+      { id: 'como', label: 'Como foi?', type: 'chips',
+        options: ['Comeu bem', 'Comeu pouco', 'Recusou', 'Pediu mais'] },
+      { id: 'oque', label: 'O que comeu?', type: 'text', placeholder: 'Ex: frango, arroz, legumes...' }
+    ]
+  },
+  {
+    id: 'soneca',
+    emoji: '😴',
+    name: 'Soneca / Descanso',
+    timeDefault: '13:00',
+    fields: [
+      { id: 'como', label: 'Como foi?', type: 'chips',
+        options: ['Dormiu bem', 'Dormiu pouco', 'Não dormiu', 'Descansou sem dormir'] },
+      { id: 'duracao', label: 'Duração', type: 'chips',
+        options: ['30 min', '1 hora', '1h30', '2 horas', 'Mais de 2h'] }
+    ]
+  },
+  {
+    id: 'lanche',
+    emoji: '🍎',
+    name: 'Lanche da tarde',
+    timeDefault: '15:30',
+    fields: [
+      { id: 'como', label: 'Como foi?', type: 'chips',
+        options: ['Comeu bem', 'Comeu pouco', 'Recusou', 'Adorou'] },
+      { id: 'oque', label: 'O que comeu?', type: 'text', placeholder: 'Ex: fruta, vitamina, bolinho...' }
+    ]
+  },
+  {
+    id: 'ativ-tarde',
+    emoji: '🌤️',
+    name: 'Atividade da tarde',
+    timeDefault: '15:00',
+    fields: [
+      { id: 'tipo', label: 'Tipo de atividade', type: 'chips',
+        options: ['Brincadeira livre', 'Ao ar livre', 'Criativa', 'Leitura', 'Do guia', 'Passeio', 'Visita'] },
+      { id: 'desc', label: 'O que fizeram?', type: 'text', placeholder: 'Descreva a atividade...' }
+    ]
+  },
+  {
+    id: 'tela',
+    emoji: '📺',
+    name: 'Momento com Tela',
+    timeDefault: '17:00',
+    optional: true,
+    fields: [
+      { id: 'teve', label: 'Teve tela hoje?', type: 'chips',
+        options: ['Sim', 'Não'] },
+      { id: 'duracao', label: 'Duração', type: 'chips',
+        options: ['15 min', '30 min', '45 min', '1 hora'] },
+      { id: 'conteudo', label: 'O que assistiu?', type: 'text', placeholder: 'Ex: Bluey, Daniel Tigre...' }
+    ]
+  },
+  {
+    id: 'banho',
+    emoji: '🛁',
+    name: 'Banho',
+    timeDefault: '17:30',
+    fields: [
+      { id: 'como', label: 'Como foi o banho?', type: 'chips',
+        options: ['Tranquilo', 'Agitado', 'Resistiu', 'Adorou brincar na água'] }
+    ]
+  },
+  {
+    id: 'jantar',
+    emoji: '🍽️',
+    name: 'Jantar',
+    timeDefault: '18:30',
+    fields: [
+      { id: 'como', label: 'Como foi?', type: 'chips',
+        options: ['Comeu bem', 'Comeu pouco', 'Recusou', 'Pediu mais'] },
+      { id: 'oque', label: 'O que comeu?', type: 'text', placeholder: 'Ex: sopa, purê, frango...' }
+    ]
+  },
+  {
+    id: 'ritual',
+    emoji: '📖',
+    name: 'Ritual de Dormir',
+    timeDefault: '19:30',
+    fields: [
+      { id: 'atividades', label: 'O que fez no ritual?', type: 'chips-multi',
+        options: ['Leitura', 'Música calma', 'Massagem', 'Conversa', 'Banho relaxante', 'Contação de história'] },
+      { id: 'como', label: 'Como foi?', type: 'text', placeholder: 'Observações sobre o ritual...' }
+    ]
+  },
+  {
+    id: 'dormir',
+    emoji: '🌙',
+    name: 'Hora de Dormir',
+    timeDefault: '20:00',
+    fields: [
+      { id: 'como', label: 'Como foi adormecer?', type: 'chips',
+        options: ['Dormiu fácil', 'Demorou um pouco', 'Demorou bastante', 'Chorou', 'Pediu companhia'] },
+      { id: 'hora-real', label: 'Que horas dormiu de fato?', type: 'time' },
+      { id: 'notas', label: 'Observações', type: 'text', placeholder: 'Algo sobre o sono de hoje...' }
+    ]
+  }
+];

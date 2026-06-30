@@ -1806,3 +1806,214 @@ main {
   color: var(--text);
   padding: 20px 20px 10px;
 }
+
+/* ── Routine Blocks (Planner) ─────────────────────────── */
+.routine-progress-bar {
+  height: 4px;
+  background: var(--border);
+  border-radius: 4px;
+  margin: 16px 20px 6px;
+  overflow: hidden;
+}
+
+.routine-progress-fill {
+  height: 100%;
+  background: var(--green);
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+.routine-progress-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 0 20px 12px;
+}
+
+.routine-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 16px 24px;
+}
+
+.routine-block-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1.5px solid var(--border);
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.routine-block-card.completed {
+  border-color: #4CAF7D40;
+  box-shadow: 0 2px 12px rgba(76,175,125,0.1);
+}
+
+.block-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.block-header:active {
+  background: var(--bg);
+}
+
+.block-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.block-emoji {
+  font-size: 24px;
+  width: 36px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.block-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.block-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.block-optional {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--bg);
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+.block-time-display {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.block-header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.block-done-badge {
+  width: 22px;
+  height: 22px;
+  background: var(--green);
+  color: white;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.block-chevron {
+  font-size: 18px;
+  color: var(--text-muted);
+  transition: transform 0.2s;
+  display: inline-block;
+}
+
+.block-body {
+  display: none;
+  border-top: 1px solid var(--border);
+  padding: 16px;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.routine-block-card.open .block-body {
+  display: flex;
+}
+
+.block-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.block-field-label {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-muted);
+}
+
+.block-chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.block-chip {
+  padding: 7px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  background: var(--bg);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.block-chip.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
+.block-chip:active {
+  opacity: 0.75;
+}
+
+.block-text-input,
+.block-time-main,
+.block-field-time {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--text);
+  background: var(--bg);
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.15s;
+  box-sizing: border-box;
+}
+
+.block-time-main,
+.block-field-time {
+  font-size: 18px;
+  font-weight: 700;
+  width: auto;
+}
+
+.block-text-input:focus,
+.block-time-main:focus,
+.block-field-time:focus {
+  border-color: var(--primary);
+  background: var(--surface);
+}
