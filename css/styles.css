@@ -2250,6 +2250,69 @@ main {
   transform: translateX(19px);
 }
 
+.install-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.install-tab {
+  flex: 1;
+  padding: 10px;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.install-tab.active {
+  background: var(--primary-light);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.install-steps {
+  list-style: none;
+  counter-reset: install-step;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.install-steps li {
+  counter-increment: install-step;
+  position: relative;
+  padding-left: 32px;
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.install-steps li::before {
+  content: counter(install-step);
+  position: absolute;
+  left: 0;
+  top: -1px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.install-icon {
+  display: inline-block;
+}
+
 .settings-account-email {
   font-size: 14px;
   color: var(--text-muted);

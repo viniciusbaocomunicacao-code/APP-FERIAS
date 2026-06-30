@@ -536,6 +536,14 @@ function bindModals() {
 function bindSettingsModal() {
   document.getElementById('settings-btn').addEventListener('click', () => openOverlay('settings-modal'));
 
+  // Install guide tabs (auto-detect platform)
+  const isAndroid = /Android/i.test(navigator.userAgent);
+  if (isAndroid) switchInstallTab('android');
+  document.getElementById('install-tabs').addEventListener('click', e => {
+    const tab = e.target.closest('.install-tab');
+    if (tab) switchInstallTab(tab.dataset.os);
+  });
+
   const darkToggle = document.getElementById('dark-mode-toggle');
   darkToggle.checked = localStorage.getItem('guia-ferias-theme') === 'dark';
   darkToggle.addEventListener('change', () => {
@@ -571,6 +579,13 @@ function bindSettingsModal() {
     closeOverlay('settings-modal');
     appSignOut();
   });
+}
+
+function switchInstallTab(os) {
+  document.getElementById('install-tab-ios').classList.toggle('active', os === 'ios');
+  document.getElementById('install-tab-android').classList.toggle('active', os === 'android');
+  document.getElementById('install-steps-ios').style.display = os === 'ios' ? '' : 'none';
+  document.getElementById('install-steps-android').style.display = os === 'android' ? '' : 'none';
 }
 
 // ── Favorites ─────────────────────────────────────────
