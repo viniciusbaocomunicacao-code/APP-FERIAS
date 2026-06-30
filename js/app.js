@@ -71,6 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
   bindRecipesTab();
   bindShowsTab();
   bindModals();
+  bindSettingsModal();
   renderActivities();
   renderPlannerWeek();
   renderRecipes();
@@ -528,6 +529,47 @@ function bindModals() {
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape')
       document.querySelectorAll('.modal-overlay.open').forEach(el => closeOverlay(el.id));
+  });
+}
+
+// ── Settings ────────────────────────────────────────────
+function bindSettingsModal() {
+  document.getElementById('settings-btn').addEventListener('click', () => openOverlay('settings-modal'));
+
+  const darkToggle = document.getElementById('dark-mode-toggle');
+  darkToggle.checked = localStorage.getItem('guia-ferias-theme') === 'dark';
+  darkToggle.addEventListener('change', () => {
+    const isDark = darkToggle.checked;
+    document.documentElement.classList.toggle('dark-mode', isDark);
+    localStorage.setItem('guia-ferias-theme', isDark ? 'dark' : 'light');
+  });
+
+  const notifToggle = document.getElementById('notifications-toggle');
+  notifToggle.checked = localStorage.getItem('guia-ferias-notifications') === 'on'
+    && typeof Notification !== 'undefined' && Notification.permission === 'granted';
+  notifToggle.addEventListener('change', () => {
+    if (notifToggle.checked) {
+      if (typeof Notification === 'undefined') {
+        notifToggle.checked = false;
+        return;
+      }
+      Notification.requestPermission().then(perm => {
+        if (perm === 'granted') {
+          localStorage.setItem('guia-ferias-notifications', 'on');
+        } else {
+          notifToggle.checked = false;
+          localStorage.setItem('guia-ferias-notifications', 'off');
+        }
+      });
+    } else {
+      localStorage.setItem('guia-ferias-notifications', 'off');
+    }
+  });
+
+  document.getElementById('change-password-btn').addEventListener('click', sendChangePasswordEmail);
+  document.getElementById('settings-logout-btn').addEventListener('click', () => {
+    closeOverlay('settings-modal');
+    appSignOut();
   });
 }
 

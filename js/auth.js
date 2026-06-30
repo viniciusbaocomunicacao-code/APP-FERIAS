@@ -18,21 +18,13 @@ auth.onAuthStateChanged(user => {
     appEl.style.display = '';
     const nameEl = document.getElementById('user-display-name');
     if (nameEl) nameEl.textContent = user.displayName ? user.displayName.split(' ')[0] : user.email;
+    const emailEl = document.getElementById('settings-account-email');
+    if (emailEl) emailEl.textContent = user.email;
   } else {
     loginScreen.style.display = '';
     appEl.style.display = 'none';
   }
 });
-
-function signInWithGoogle() {
-  const btn = document.getElementById('google-btn');
-  btn.disabled = true;
-  const provider = new firebase.auth.GoogleAuthProvider();
-  auth.signInWithPopup(provider).catch(() => {
-    btn.disabled = false;
-    showLoginError('Erro ao entrar com Google. Tente novamente.');
-  });
-}
 
 function signInWithEmail(e) {
   e && e.preventDefault();
@@ -52,6 +44,26 @@ function signInWithEmail(e) {
 
 function appSignOut() {
   auth.signOut();
+}
+
+function sendChangePasswordEmail() {
+  const user = auth.currentUser;
+  if (!user) return;
+  const btn = document.getElementById('change-password-btn');
+  const feedback = document.getElementById('settings-feedback');
+  btn.disabled = true;
+  auth.sendPasswordResetEmail(user.email)
+    .then(() => {
+      feedback.textContent = `Enviamos um link para ${user.email}. Abra o email para definir sua nova senha.`;
+      feedback.style.display = '';
+      feedback.classList.remove('settings-feedback-error');
+    })
+    .catch(() => {
+      feedback.textContent = 'Erro ao enviar o email. Tente novamente.';
+      feedback.style.display = '';
+      feedback.classList.add('settings-feedback-error');
+    })
+    .finally(() => { btn.disabled = false; });
 }
 
 function showLoginError(msg) {

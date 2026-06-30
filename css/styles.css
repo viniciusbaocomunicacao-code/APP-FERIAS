@@ -2057,52 +2057,6 @@ main {
   line-height: 1.5;
 }
 
-.login-google-btn {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 14px 20px;
-  background: var(--surface);
-  border: 1.5px solid var(--border);
-  border-radius: 14px;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--text);
-  cursor: pointer;
-  transition: all 0.15s;
-  box-shadow: var(--shadow);
-}
-
-.login-google-btn:active {
-  background: var(--bg);
-  transform: scale(0.98);
-}
-
-.login-google-btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.login-divider {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin: 20px 0;
-  color: var(--text-muted);
-  font-size: 13px;
-}
-
-.login-divider::before,
-.login-divider::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--border);
-}
-
 .login-form {
   width: 100%;
   display: flex;
@@ -2187,4 +2141,179 @@ main {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.header-settings-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+
+.header-settings-btn:active {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ── Settings Modal ───────────────────────────────────── */
+.settings-section {
+  margin-bottom: 24px;
+}
+
+.settings-section:last-of-type {
+  margin-bottom: 8px;
+}
+
+.settings-section-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.settings-row:last-child {
+  border-bottom: none;
+}
+
+.settings-row-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.settings-row-desc {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.settings-switch {
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 27px;
+  flex-shrink: 0;
+}
+
+.settings-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.settings-switch-slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: var(--border);
+  border-radius: 100px;
+  transition: background 0.2s;
+}
+
+.settings-switch-slider::before {
+  content: '';
+  position: absolute;
+  width: 21px;
+  height: 21px;
+  left: 3px;
+  top: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.settings-switch input:checked + .settings-switch-slider {
+  background: var(--primary);
+}
+
+.settings-switch input:checked + .settings-switch-slider::before {
+  transform: translateX(19px);
+}
+
+.settings-account-email {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.settings-action-btn {
+  width: 100%;
+  padding: 14px;
+  background: var(--primary-light);
+  color: var(--primary);
+  border: none;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.settings-action-btn:active {
+  opacity: 0.7;
+}
+
+.settings-action-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.settings-feedback {
+  font-size: 13px;
+  color: var(--green);
+  margin-top: 12px;
+  line-height: 1.5;
+}
+
+.settings-feedback-error {
+  color: #E05A5A;
+}
+
+.settings-logout-btn {
+  width: 100%;
+  padding: 14px;
+  background: none;
+  color: #E05A5A;
+  border: none;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.settings-logout-btn:active {
+  background: var(--bg);
+}
+
+/* ── Dark Mode ─────────────────────────────────────────── */
+html.dark-mode {
+  --primary: #5B82D6;
+  --primary-light: #1E2A45;
+  --primary-dark: #4A6FC2;
+  --bg: #11151F;
+  --surface: #1A1F2E;
+  --text: #EDEFF5;
+  --text-muted: #8E96AC;
+  --border: #2A3145;
+  --shadow: 0 2px 12px rgba(0,0,0,0.3);
 }
