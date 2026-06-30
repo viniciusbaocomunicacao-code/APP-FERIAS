@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="110" fill="#E8735A"/>
+  <!-- Roof -->
+  <polygon points="256,90 390,210 390,210 122,210" fill="white" opacity="0.95"/>
+  <!-- House body -->
+  <rect x="142" y="208" width="228" height="200" rx="8" fill="white" opacity="0.95"/>
+  <!-- Door -->
+  <rect x="216" y="300" width="80" height="108" rx="12" fill="#E8735A"/>
+  <!-- Window left -->
+  <rect x="160" y="248" width="58" height="52" rx="8" fill="#E8735A" opacity="0.7"/>
+  <!-- Window right -->
+  <rect x="294" y="248" width="58" height="52" rx="8" fill="#E8735A" opacity="0.7"/>
+  <!-- Heart on door -->
+  <path d="M256 374 C256 374 238 358 238 347 C238 341 243 337 248 337 C251 337 254 339 256 342 C258 339 261 337 264 337 C269 337 274 341 274 347 C274 358 256 374 256 374Z" fill="white"/>
+</svg>

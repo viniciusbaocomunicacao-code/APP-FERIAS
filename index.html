@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#E8735A">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Guia de Férias">
+  <meta name="description" content="Guia de Férias com Filhos · Método LAR · Atividades, planner e receitas saudáveis.">
+  <title>Guia de Férias · Método LAR</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- Header -->
+  <header>
+    <img src="IMAGENS/LOGO.png" alt="Guia de Férias" class="header-logo-img">
+  </header>
+
+  <!-- Main content -->
+  <main>
+
+    <!-- ── Atividades Tab ── -->
+    <section class="tab-content active" id="tab-atividades">
+      <div class="section-header">
+        <div class="section-title">Atividades</div>
+        <div class="section-subtitle">100 brincadeiras organizadas por faixa etária</div>
+      </div>
+      <div class="search-wrap">
+        <input class="search-input" id="act-search" type="search" placeholder="Buscar atividade..." autocomplete="off">
+      </div>
+      <div class="age-filters" id="age-filter-row">
+        <button class="filter-pill active" data-age="all">Todas</button>
+        <button class="filter-pill" data-age="0-3m">0–3 m</button>
+        <button class="filter-pill" data-age="3-6m">3–6 m</button>
+        <button class="filter-pill" data-age="6-9m">6–9 m</button>
+        <button class="filter-pill" data-age="9-12m">9–12 m</button>
+        <button class="filter-pill" data-age="1-2a">1–2 a</button>
+        <button class="filter-pill" data-age="2+">2+ anos</button>
+        <button class="filter-pill" data-age="3+">3+ anos</button>
+        <button class="filter-pill" data-age="5+">5+ anos</button>
+        <button class="filter-pill" data-age="7+">7+ anos</button>
+        <button class="filter-pill" data-age="viagem">🚗 Viagem</button>
+      </div>
+      <div class="activities-grid" id="activities-grid"></div>
+    </section>
+
+    <!-- ── Planner Tab ── -->
+    <section class="tab-content" id="tab-planner">
+      <div class="section-header">
+        <div class="section-title">Planner</div>
+        <div class="section-subtitle">Organize a rotina da semana</div>
+      </div>
+
+      <!-- Week navigation (visible in week view) -->
+      <div class="planner-week-nav" id="planner-week-nav">
+        <button class="week-nav-btn" id="planner-prev">‹</button>
+        <span class="week-label" id="week-label"></span>
+        <button class="week-nav-btn" id="planner-next">›</button>
+      </div>
+
+      <!-- Day view header (visible in day view) -->
+      <div class="planner-day-header" id="planner-day-header" style="display:none;">
+        <button class="planner-back-btn" id="planner-back-btn">
+          <svg width="7" height="12" viewBox="0 0 7 12" fill="none"><path d="M6 1L1 6l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Semana
+        </button>
+        <span class="planner-day-title" id="planner-day-title"></span>
+      </div>
+
+      <!-- Content area: week list or day timeline -->
+      <div class="planner-content" id="planner-content"></div>
+    </section>
+
+    <!-- ── Receitas Tab ── -->
+    <section class="tab-content" id="tab-receitas">
+      <div class="section-header">
+        <div class="section-title">Receitas</div>
+        <div class="section-subtitle">35 receitinhas saudáveis do ebook <em>Saúde na Lancheira</em></div>
+      </div>
+      <div class="age-filters" id="recipe-filter-row">
+        <button class="filter-pill active" data-cat="all">Todas</button>
+        <button class="filter-pill" data-cat="paes">🥖 Pães</button>
+        <button class="filter-pill" data-cat="bolos">🎂 Bolos</button>
+        <button class="filter-pill" data-cat="muffins">🧁 Muffins</button>
+        <button class="filter-pill" data-cat="bolinhos">🍡 Bolinhos</button>
+        <button class="filter-pill" data-cat="biscoitos">🍪 Biscoitos</button>
+        <button class="filter-pill" data-cat="doces">🍫 Doces</button>
+        <button class="filter-pill" data-cat="gelados">🧊 Gelados</button>
+        <button class="filter-pill" data-cat="bebidas">🥤 Bebidas</button>
+        <button class="filter-pill" data-cat="frutas">🍓 Frutas</button>
+      </div>
+      <div class="recipes-grid" id="recipes-grid"></div>
+    </section>
+
+    <!-- ── Desenhos (Momentos com Tela) Tab ── -->
+    <section class="tab-content" id="tab-desenhos">
+      <!-- Detail view (hidden initially) -->
+      <div class="shows-detail-view" id="shows-detail-view" style="display:none;">
+        <div class="shows-detail-header">
+          <button class="planner-back-btn" id="shows-back-btn">
+            <svg width="7" height="12" viewBox="0 0 7 12" fill="none"><path d="M6 1L1 6l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Voltar
+          </button>
+        </div>
+        <div id="shows-detail-content"></div>
+      </div>
+
+      <!-- List view -->
+      <div id="shows-list-view">
+        <div class="section-header">
+          <div class="section-title">Momentos com Tela</div>
+          <div class="section-subtitle">Escolhas mais calmas para momentos com tela.</div>
+        </div>
+
+        <div class="shows-notice">
+          ⚠️ Para crianças menores de 2 anos, especialistas recomendam priorizar brincadeiras, leitura, música, movimento e interação com adultos.
+        </div>
+
+        <div class="shows-toolbar">
+          <input id="show-search" class="search-input shows-search-input" placeholder="Buscar..." autocomplete="off">
+          <button id="shows-filter-btn" class="shows-filter-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+            Filtrar
+            <span id="filter-badge" class="filter-badge" style="display:none">0</span>
+          </button>
+        </div>
+
+        <!-- Collection chips -->
+        <div class="shows-collections-row" id="shows-collections-row">
+          <button class="collection-chip active" data-collection="">Todas</button>
+          <button class="collection-chip" data-collection="Antes de Dormir">🌙 Antes de Dormir</button>
+          <button class="collection-chip" data-collection="Calminhos">☁️ Calminhos</button>
+          <button class="collection-chip" data-collection="Aprendendo Brincando">📚 Aprendendo</button>
+          <button class="collection-chip" data-collection="Ciência e Descobertas">🔬 Ciência</button>
+          <button class="collection-chip" data-collection="Natureza e Animais">🌿 Natureza</button>
+          <button class="collection-chip" data-collection="Primeiros Desenhos">🍼 Primeiros</button>
+          <button class="collection-chip" data-collection="Para Assistir em Família">👨‍👩‍👧 Família</button>
+          <button class="collection-chip" data-collection="Criatividade e Imaginação">🎨 Criatividade</button>
+          <button class="collection-chip" data-collection="Clássicos que Nunca Envelhecem">⭐ Clássicos</button>
+        </div>
+
+        <div class="active-filters-row" id="active-filters-row" style="display:none;"></div>
+
+        <!-- Curated sections (shown when no filters active) -->
+        <div id="shows-curated"></div>
+
+        <div id="shows-grid-title" class="shows-full-title">Todos os conteúdos</div>
+        <div class="shows-container">
+          <div class="shows-grid" id="shows-grid"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Nav -->
+  <nav class="bottom-nav">
+    <button class="nav-btn active" data-tab="atividades">
+      <span class="nav-icon">🎮</span>
+      <span class="nav-label">Atividades</span>
+    </button>
+    <button class="nav-btn" data-tab="planner">
+      <span class="nav-icon">📅</span>
+      <span class="nav-label">Planner</span>
+    </button>
+    <button class="nav-btn" data-tab="receitas">
+      <span class="nav-icon">🥗</span>
+      <span class="nav-label">Receitas</span>
+    </button>
+    <button class="nav-btn" data-tab="desenhos">
+      <span class="nav-icon">📺</span>
+      <span class="nav-label">Tela</span>
+    </button>
+  </nav>
+
+</div><!-- #app -->
+
+<!-- ── Activity Detail Modal ── -->
+<div class="modal-overlay" id="activity-modal">
+  <div class="modal-sheet relative">
+    <div class="modal-handle"></div>
+    <button class="modal-close modal-close-btn" data-modal="activity-modal">×</button>
+    <div class="modal-body">
+      <div class="modal-tag" id="activity-modal-tag"></div>
+      <div class="modal-title" id="activity-modal-title"></div>
+      <div class="modal-section">
+        <div class="modal-section-label">Materiais</div>
+        <div class="modal-section-text" id="activity-modal-materials"></div>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-label">Como brincar</div>
+        <div class="modal-section-text" id="activity-modal-howtoplay"></div>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-label">Habilidades desenvolvidas</div>
+        <div class="modal-skills-tag" id="activity-modal-skills"></div>
+      </div>
+      <button class="add-to-planner-btn" id="activity-add-planner-btn">
+        📅 Adicionar ao Planner
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ── Recipe Detail Modal ── -->
+<div class="modal-overlay" id="recipe-modal">
+  <div class="modal-sheet relative">
+    <div class="modal-handle"></div>
+    <button class="modal-close modal-close-btn" data-modal="recipe-modal">×</button>
+    <div class="modal-body">
+      <span class="recipe-modal-emoji" id="recipe-modal-emoji"></span>
+      <div class="modal-title" id="recipe-modal-title"></div>
+      <div class="recipe-meta" id="recipe-modal-meta" style="margin-bottom:20px;"></div>
+      <div class="modal-section">
+        <div class="modal-section-label">Ingredientes</div>
+        <ul class="recipe-ingredients" id="recipe-modal-ingredients"></ul>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-label">Modo de preparo</div>
+        <div class="modal-section-text" id="recipe-modal-howto"></div>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-label">Dica</div>
+        <div class="recipe-tip" id="recipe-modal-tip"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Activity Picker (for entry editor) ── -->
+<div class="modal-overlay" id="picker-modal">
+  <div class="modal-sheet relative">
+    <div class="modal-handle"></div>
+    <button class="modal-close modal-close-btn" data-modal="picker-modal">×</button>
+    <div class="modal-body">
+      <div class="modal-title" style="font-size:18px;margin-bottom:14px;">Buscar atividade</div>
+      <input class="picker-search" id="picker-search" type="search" placeholder="Buscar..." autocomplete="off">
+      <div class="picker-list" id="picker-list"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Week Picker (choose day for activity from detail modal) ── -->
+<div class="modal-overlay" id="week-picker-modal">
+  <div class="modal-sheet relative">
+    <div class="modal-handle"></div>
+    <button class="modal-close modal-close-btn" data-modal="week-picker-modal">×</button>
+    <div class="modal-body">
+      <div class="modal-title" style="font-size:18px;margin-bottom:14px;">Escolher o dia</div>
+      <div class="planner-week-nav" style="padding:0;margin-bottom:14px;">
+        <button class="week-nav-btn" id="wp-prev">‹</button>
+        <span class="week-label" id="wp-week-label"></span>
+        <button class="week-nav-btn" id="wp-next">›</button>
+      </div>
+      <div id="wp-days" style="display:flex;flex-direction:column;gap:8px;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Entry Editor Modal ── -->
+<div class="modal-overlay" id="entry-editor-modal">
+  <div class="modal-sheet relative">
+    <div class="modal-handle"></div>
+    <button class="modal-close modal-close-btn" data-modal="entry-editor-modal">×</button>
+    <div class="modal-body">
+      <div class="modal-title" id="entry-editor-title">Nova atividade</div>
+
+      <div class="entry-form">
+        <label class="entry-label" for="entry-time-input">Horário</label>
+        <input type="time" class="entry-time-input" id="entry-time-input" value="09:00">
+
+        <label class="entry-label" for="entry-text-input">O que vai fazer?</label>
+        <input type="text" class="entry-text-input" id="entry-text-input"
+               placeholder="Ex: Almoço, parque, massinha..." autocomplete="off">
+
+        <button class="entry-pick-btn" id="entry-pick-activity-btn">
+          🎮 Buscar no Guia de Atividades
+        </button>
+      </div>
+
+      <div class="entry-actions">
+        <button class="entry-cancel-btn modal-close-btn" data-modal="entry-editor-modal">Cancelar</button>
+        <button class="entry-save-btn" id="entry-save-btn">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Age Warning Modal ── -->
+<div class="modal-overlay" id="age-warning-modal">
+  <div class="modal-sheet age-warning-sheet">
+    <div class="modal-handle"></div>
+    <div class="modal-body">
+      <div class="age-warning-icon">👶</div>
+      <div class="modal-title">Menores de 2 anos</div>
+      <p class="age-warning-text">Para crianças menores de 2 anos, especialistas recomendam priorizar experiências sem telas. Brincadeiras, leitura, música, movimento e interação com adultos são mais importantes para o desenvolvimento nesta fase.</p>
+      <button id="btn-go-atividades" class="age-warning-primary-btn">Ver atividades sem tela</button>
+      <button id="btn-continue-tela" class="age-warning-secondary-btn modal-close-btn" data-modal="age-warning-modal">Continuar para Momentos com Tela</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── Shows Filter Modal ── -->
+<div class="modal-overlay" id="shows-filter-modal">
+  <div class="modal-sheet relative">
+    <div class="modal-handle"></div>
+    <button class="modal-close modal-close-btn" data-modal="shows-filter-modal">×</button>
+    <div class="modal-body">
+      <div class="modal-title" style="font-size:20px;margin-bottom:20px;">Filtrar desenhos</div>
+
+      <div class="filter-section-label">Nível de estímulo</div>
+      <div class="filter-chips-row" id="filter-stim-chips">
+        <button class="filter-chip" data-filter="stim" data-val="1">Muito baixo</button>
+        <button class="filter-chip" data-filter="stim" data-val="2">Baixo</button>
+        <button class="filter-chip" data-filter="stim" data-val="3">Moderado</button>
+      </div>
+
+      <div class="filter-section-label">Faixa etária</div>
+      <div class="filter-chips-row" id="filter-age-chips">
+        <button class="filter-chip" data-filter="age" data-val="baby">Bebê (0–2)</button>
+        <button class="filter-chip" data-filter="age" data-val="toddler">Pequeno (2–5)</button>
+        <button class="filter-chip" data-filter="age" data-val="child">Criança (5–8)</button>
+        <button class="filter-chip" data-filter="age" data-val="older">Maior (8+)</button>
+      </div>
+
+      <div class="filter-section-label">Momento ideal</div>
+      <div class="filter-chips-row filter-chips-wrap" id="filter-moment-chips">
+        <button class="filter-chip" data-filter="moment" data-val="Ao acordar">Ao acordar</button>
+        <button class="filter-chip" data-filter="moment" data-val="Depois do almoço">Depois do almoço</button>
+        <button class="filter-chip" data-filter="moment" data-val="Momento educativo">Momento educativo</button>
+        <button class="filter-chip" data-filter="moment" data-val="Viagem">Viagem</button>
+        <button class="filter-chip" data-filter="moment" data-val="Dia de chuva">Dia de chuva</button>
+        <button class="filter-chip" data-filter="moment" data-val="Relaxar">Relaxar</button>
+        <button class="filter-chip" data-filter="moment" data-val="Antes de dormir">Antes de dormir</button>
+        <button class="filter-chip" data-filter="moment" data-val="Assistir em família">Assistir em família</button>
+      </div>
+
+      <div class="filter-section-label">Tema</div>
+      <div class="filter-chips-row filter-chips-wrap" id="filter-theme-chips">
+        <button class="filter-chip" data-filter="theme" data-val="Natureza">Natureza</button>
+        <button class="filter-chip" data-filter="theme" data-val="Animais">Animais</button>
+        <button class="filter-chip" data-filter="theme" data-val="Família">Família</button>
+        <button class="filter-chip" data-filter="theme" data-val="Amizade">Amizade</button>
+        <button class="filter-chip" data-filter="theme" data-val="Emoções">Emoções</button>
+        <button class="filter-chip" data-filter="theme" data-val="Criatividade">Criatividade</button>
+        <button class="filter-chip" data-filter="theme" data-val="Ciência">Ciência</button>
+        <button class="filter-chip" data-filter="theme" data-val="Música">Música</button>
+        <button class="filter-chip" data-filter="theme" data-val="Humor">Humor</button>
+        <button class="filter-chip" data-filter="theme" data-val="Fantasia">Fantasia</button>
+        <button class="filter-chip" data-filter="theme" data-val="Escola">Escola</button>
+        <button class="filter-chip" data-filter="theme" data-val="Meio ambiente">Meio ambiente</button>
+      </div>
+
+      <div class="filter-section-label">Extras</div>
+      <div class="filter-chips-row filter-chips-wrap">
+        <button class="filter-chip" data-filter="extra" data-val="goodForBedtime">🌙 Antes de dormir</button>
+        <button class="filter-chip" data-filter="extra" data-val="goodForRainyDay">🌧️ Dia de chuva</button>
+        <button class="filter-chip" data-filter="extra" data-val="goodForTravel">✈️ Viagem</button>
+        <button class="filter-chip" data-filter="extra" data-val="goodForFamily">👨‍👩‍👧 Para assistir em família</button>
+        <button class="filter-chip" data-filter="extra" data-val="hasPtBrDub">🇧🇷 Dublado em PT</button>
+      </div>
+
+      <div class="filter-actions">
+        <button id="filter-clear-btn" class="entry-cancel-btn">Limpar tudo</button>
+        <button id="filter-apply-btn" class="entry-save-btn">Aplicar filtros</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  }
+</script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "Guia de Férias · Método LAR",
+  "short_name": "Guia Férias",
+  "description": "Atividades, planner semanal e receitas saudáveis para as férias em família.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5F7FF",
+  "theme_color": "#2C4DA2",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "IMAGENS/LOGO.png",
+      "sizes": "1254x1254",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "IMAGENS/LOGO.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
