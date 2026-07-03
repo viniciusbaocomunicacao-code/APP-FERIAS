@@ -93,11 +93,9 @@ function bindHomeTab() {
   document.querySelectorAll('.netflix-card.unlocked').forEach(card => {
     card.addEventListener('click', () => openProductPopup(card));
   });
-  // Locked cards → navigate on click
+  // Locked cards → popup on click
   document.querySelectorAll('.netflix-card.locked').forEach(card => {
-    card.addEventListener('click', () => {
-      if (card.dataset.url) window.open(card.dataset.url, '_blank', 'noopener');
-    });
+    card.addEventListener('click', () => openProductPopup(card));
   });
   // Popup close
   document.getElementById('product-popup-close').addEventListener('click', closeProductPopup);
