@@ -129,7 +129,8 @@ function openProductPopup(card) {
 
   const footer = document.getElementById('product-popup-footer');
   if (isLocked && card.dataset.url) {
-    footer.innerHTML = `<a class="product-popup-cta" href="${card.dataset.url}" target="_blank" rel="noopener">Ver produto →</a>`;
+    const ctaLabel = card.dataset.cta || 'Ver produto →';
+    footer.innerHTML = `<a class="product-popup-cta" href="${card.dataset.url}" target="_blank" rel="noopener">${ctaLabel}</a>`;
     footer.style.display = '';
   } else {
     footer.innerHTML = '';
