@@ -85,39 +85,62 @@
         </div>
       </div>
 
+      <!-- Seus produtos (desbloqueados) -->
       <div class="home-block">
-        <div class="home-block-label">Mais do Método LAR</div>
-        <div class="home-block-sub">Outros recursos para você e seus filhos</div>
+        <div class="home-block-label">Seus produtos</div>
+        <div class="home-block-sub">Inclusos na sua compra do Guia de Férias</div>
         <div class="netflix-row">
-          <!-- TODO: atualize os hrefs com as URLs reais das páginas de venda -->
-          <a class="netflix-card" href="https://lourdescorsi.com/sos-birras" target="_blank" rel="noopener">
-            <div class="netflix-thumb" style="background-image:url('IMAGENS/produtos/sos-birras.png')"></div>
-            <div class="netflix-overlay">
-              <svg class="netflix-lock" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            </div>
-            <div class="netflix-name">SOS Birras</div>
-          </a>
-          <a class="netflix-card" href="https://lourdescorsi.com/sem-telas" target="_blank" rel="noopener">
-            <div class="netflix-thumb" style="background-image:url('IMAGENS/produtos/sem-telas.png')"></div>
-            <div class="netflix-overlay">
-              <svg class="netflix-lock" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            </div>
-            <div class="netflix-name">Infância Sem Telas</div>
-          </a>
-          <a class="netflix-card" href="https://lourdescorsi.com/rotina-visual" target="_blank" rel="noopener">
+          <div class="netflix-card unlocked"
+               data-name="Rotina Visual"
+               data-desc="Cards visuais para estruturar a rotina diária do seu filho por momento do dia — manhã, tarde e noite. Imprima, plastifique e fixe na geladeira ou no quarto.">
             <div class="netflix-thumb" style="background-image:url('IMAGENS/produtos/rotina-visual.jpg')"></div>
-            <div class="netflix-overlay">
-              <svg class="netflix-lock" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            </div>
+            <div class="netflix-incl-badge">✓ incluso</div>
+            <button class="netflix-info-btn" type="button" aria-label="Ver descrição"><svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></button>
             <div class="netflix-name">Rotina Visual</div>
-          </a>
-          <a class="netflix-card" href="https://lourdescorsi.com/4-temperamentos" target="_blank" rel="noopener">
+          </div>
+          <div class="netflix-card unlocked"
+               data-name="Kit Antibirras"
+               data-desc="Material de apoio com estratégias práticas para entender e lidar com birras de forma calma e conectada, sem punições e sem permissividade.">
+            <div class="netflix-thumb" style="background-image:url('IMAGENS/produtos/kit-antibirras.png')"></div>
+            <div class="netflix-incl-badge">✓ incluso</div>
+            <button class="netflix-info-btn" type="button" aria-label="Ver descrição"><svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></button>
+            <div class="netflix-name">Kit Antibirras</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mais do Método LAR (bloqueados) -->
+      <div class="home-block" style="padding-bottom:24px;">
+        <div class="home-block-label">Mais do Método LAR</div>
+        <div class="home-block-sub">Toque para conhecer e adquirir</div>
+        <div class="netflix-row">
+          <div class="netflix-card locked"
+               data-name="SOS Birras"
+               data-desc="O curso completo para transformar as birras em momentos de conexão. Estratégias aprofundadas para entender a desregulação emocional infantil e responder com calma."
+               data-url="https://lourdescorsi.com/sos-birras">
+            <div class="netflix-thumb" style="background:linear-gradient(135deg,#1B2744 0%,#2979C2 100%)"></div>
+            <div class="netflix-overlay"><svg class="netflix-lock" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+            <button class="netflix-info-btn" type="button" aria-label="Ver descrição"><svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></button>
+            <div class="netflix-name">SOS Birras</div>
+          </div>
+          <div class="netflix-card locked"
+               data-name="Infância Sem Telas"
+               data-desc="Guia prático para reduzir o tempo de tela com gentileza e criar alternativas de lazer que as crianças realmente amam — sem briga e sem culpa."
+               data-url="https://lourdescorsi.com/sem-telas">
+            <div class="netflix-thumb" style="background-image:url('IMAGENS/produtos/sem-telas.png')"></div>
+            <div class="netflix-overlay"><svg class="netflix-lock" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+            <button class="netflix-info-btn" type="button" aria-label="Ver descrição"><svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></button>
+            <div class="netflix-name">Infância Sem Telas</div>
+          </div>
+          <div class="netflix-card locked"
+               data-name="Guia dos 4 Temperamentos"
+               data-desc="Descubra o temperamento do seu filho e aprenda a se comunicar de um jeito que ele realmente entende — criando mais harmonia e menos conflito no dia a dia."
+               data-url="https://lourdescorsi.com/4-temperamentos">
             <div class="netflix-thumb" style="background-image:url('IMAGENS/produtos/temperamentos.png')"></div>
-            <div class="netflix-overlay">
-              <svg class="netflix-lock" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            </div>
+            <div class="netflix-overlay"><svg class="netflix-lock" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+            <button class="netflix-info-btn" type="button" aria-label="Ver descrição"><svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></button>
             <div class="netflix-name">4 Temperamentos</div>
-          </a>
+          </div>
         </div>
       </div>
     </section>
@@ -498,6 +521,20 @@
 
       <button class="settings-logout-btn" id="settings-logout-btn">Sair da conta</button>
     </div>
+  </div>
+</div>
+
+<!-- Product Popup -->
+<div class="product-popup-overlay" id="product-popup" style="display:none;">
+  <div class="product-popup-sheet">
+    <button class="product-popup-x" id="product-popup-close" aria-label="Fechar">×</button>
+    <div class="product-popup-img" id="product-popup-img"></div>
+    <div class="product-popup-body">
+      <div class="product-popup-badge" id="product-popup-badge"></div>
+      <div class="product-popup-name" id="product-popup-name"></div>
+      <div class="product-popup-desc" id="product-popup-desc"></div>
+    </div>
+    <div class="product-popup-footer" id="product-popup-footer"></div>
   </div>
 </div>
 

@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
   loadPlanner();
   loadFavorites();
   bindNav();
+  bindHomeTab();
   bindActivitiesTab();
   bindPlannerTab();
   bindRecipesTab();
@@ -77,6 +78,76 @@ document.addEventListener('DOMContentLoaded', () => {
   renderRecipes();
   renderShows();
 });
+
+// ── Home Tab ───────────────────────────────────────────
+function bindHomeTab() {
+  // Info buttons → open popup
+  document.querySelectorAll('.netflix-info-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      e.stopPropagation();
+      openProductPopup(btn.closest('.netflix-card'));
+    });
+  });
+  // Unlocked cards → popup on card click too
+  document.querySelectorAll('.netflix-card.unlocked').forEach(card => {
+    card.addEventListener('click', () => openProductPopup(card));
+  });
+  // Locked cards → navigate on click
+  document.querySelectorAll('.netflix-card.locked').forEach(card => {
+    card.addEventListener('click', () => {
+      if (card.dataset.url) window.open(card.dataset.url, '_blank', 'noopener');
+    });
+  });
+  // Popup close
+  document.getElementById('product-popup-close').addEventListener('click', closeProductPopup);
+  document.getElementById('product-popup').addEventListener('click', e => {
+    if (e.target.id === 'product-popup') closeProductPopup();
+  });
+}
+
+function openProductPopup(card) {
+  const isLocked  = card.classList.contains('locked');
+  const thumb     = card.querySelector('.netflix-thumb');
+  const bgImg     = thumb ? thumb.style.backgroundImage : '';
+  const bgColor   = thumb ? thumb.style.background : '';
+
+  const imgEl = document.getElementById('product-popup-img');
+  imgEl.style.backgroundImage = bgImg || '';
+  imgEl.style.background = bgImg ? '' : bgColor;
+  imgEl.classList.toggle('blurred', isLocked);
+
+  const badge = document.getElementById('product-popup-badge');
+  if (isLocked) {
+    badge.textContent = '🔒 Disponível separadamente';
+    badge.className = 'product-popup-badge locked';
+  } else {
+    badge.textContent = '✓ Incluso na sua compra';
+    badge.className = 'product-popup-badge unlocked';
+  }
+
+  document.getElementById('product-popup-name').textContent = card.dataset.name || '';
+  document.getElementById('product-popup-desc').textContent = card.dataset.desc || '';
+
+  const footer = document.getElementById('product-popup-footer');
+  if (isLocked && card.dataset.url) {
+    footer.innerHTML = `<a class="product-popup-cta" href="${card.dataset.url}" target="_blank" rel="noopener">Ver produto →</a>`;
+    footer.style.display = '';
+  } else {
+    footer.innerHTML = '';
+    footer.style.display = 'none';
+  }
+
+  const popup = document.getElementById('product-popup');
+  popup.style.display = 'flex';
+  requestAnimationFrame(() => popup.classList.add('open'));
+}
+
+function closeProductPopup() {
+  const popup = document.getElementById('product-popup');
+  popup.classList.remove('open');
+  setTimeout(() => { popup.style.display = 'none'; }, 260);
+}
 
 // ── Navigation ─────────────────────────────────────────
 function bindNav() {
