@@ -21,7 +21,6 @@ const state = {
     ageGroup: null,
     idealMoments: [],
     themes: [],
-    goodForBedtime: false,
     goodForRainyDay: false,
     goodForTravel: false,
     goodForFamily: false,
@@ -824,7 +823,7 @@ function applyFiltersFromModal() {
 function clearFilters() {
   state.showFilters = {
     stimulation: [], ageGroup: null, idealMoments: [], themes: [],
-    goodForBedtime: false, goodForRainyDay: false, goodForTravel: false,
+    goodForRainyDay: false, goodForTravel: false,
     goodForFamily: false, hasPtBrDub: false, search: state.showFilters.search,
   };
   document.querySelectorAll('#shows-filter-modal .filter-chip').forEach(c => {
@@ -838,7 +837,7 @@ function hasAnyFilter() {
   return !!f.search || !!state.activeCollection ||
     f.stimulation.length > 0 || !!f.ageGroup ||
     f.idealMoments.length > 0 || f.themes.length > 0 ||
-    f.goodForBedtime || f.goodForRainyDay || f.goodForTravel ||
+    f.goodForRainyDay || f.goodForTravel ||
     f.goodForFamily || f.hasPtBrDub;
 }
 
@@ -846,7 +845,7 @@ function countActiveFilters() {
   const f = state.showFilters;
   return f.stimulation.length + (f.ageGroup ? 1 : 0) +
     f.idealMoments.length + f.themes.length +
-    (f.goodForBedtime ? 1 : 0) + (f.goodForRainyDay ? 1 : 0) +
+    (f.goodForRainyDay ? 1 : 0) +
     (f.goodForTravel ? 1 : 0) + (f.goodForFamily ? 1 : 0) + (f.hasPtBrDub ? 1 : 0);
 }
 
@@ -864,7 +863,6 @@ function filterShows() {
     }
     if (f.idealMoments.length && !f.idealMoments.some(m => s.idealMoments.includes(m))) return false;
     if (f.themes.length && !f.themes.some(t => s.themes.includes(t))) return false;
-    if (f.goodForBedtime  && !s.goodForBedtime)  return false;
     if (f.goodForRainyDay && !s.goodForRainyDay) return false;
     if (f.goodForTravel   && !s.goodForTravel)   return false;
     if (f.goodForFamily   && !s.goodForFamily)   return false;
@@ -950,13 +948,11 @@ function renderShows() {
     curated.style.display = '';
     if (gridTitle) gridTitle.style.display = '';
     const descacelerar = SCREEN_CONTENT.filter(s => s.stimulationLevel <= 2).slice(0, 10);
-    const dormir       = SCREEN_CONTENT.filter(s => s.goodForBedtime).slice(0, 10);
     const brasileiras  = SCREEN_CONTENT.filter(s => (s.collections || []).includes('Produções Brasileiras')).slice(0, 10);
     const aprendendo   = SCREEN_CONTENT.filter(s => s.idealMoments.includes('Momento educativo')).slice(0, 10);
 
     curated.innerHTML =
       renderCuratedSection('Recomendados para desacelerar', '☁️', descacelerar) +
-      renderCuratedSection('Antes de dormir', '🌙', dormir) +
       (brasileiras.length ? renderCuratedSection('Produções brasileiras', '🇧🇷', brasileiras) : '') +
       renderCuratedSection('Aprendendo brincando', '📚', aprendendo);
 
@@ -976,7 +972,6 @@ function renderActiveFilterChips() {
   }
   f.idealMoments.forEach(v => chips.push({ label: v, remove: () => { state.showFilters.idealMoments = state.showFilters.idealMoments.filter(x => x !== v); } }));
   f.themes.forEach(v => chips.push({ label: v, remove: () => { state.showFilters.themes = state.showFilters.themes.filter(x => x !== v); } }));
-  if (f.goodForBedtime)  chips.push({ label: '🌙 Dormir',   remove: () => { state.showFilters.goodForBedtime  = false; } });
   if (f.goodForRainyDay) chips.push({ label: '🌧️ Chuva',    remove: () => { state.showFilters.goodForRainyDay = false; } });
   if (f.goodForTravel)   chips.push({ label: '✈️ Viagem',   remove: () => { state.showFilters.goodForTravel   = false; } });
   if (f.goodForFamily)   chips.push({ label: '👨‍👩‍👧 Família', remove: () => { state.showFilters.goodForFamily   = false; } });
@@ -1014,7 +1009,6 @@ function openShowDetail(id) {
   }).join('');
 
   const extraBadges = [
-    show.goodForBedtime  ? `<span class="detail-extra-badge">🌙 Antes de dormir</span>` : '',
     show.goodForRainyDay ? `<span class="detail-extra-badge">🌧️ Dia de chuva</span>`   : '',
     show.goodForTravel   ? `<span class="detail-extra-badge">✈️ Viagem</span>`           : '',
     show.goodForFamily   ? `<span class="detail-extra-badge">👨‍👩‍👧 Para assistir em família</span>` : '',
