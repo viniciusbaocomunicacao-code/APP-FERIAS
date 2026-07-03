@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guia de Férias — Boas-vindas</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:     #1B2744;
+      --ink-2:   #2D3748;
+      --ink-3:   #5A6880;
+      --ink-4:   #8896B0;
+      --gold:    #C18A10;
+      --gold-lt: #F5E6C8;
+      --bg:      #FFFFFF;
+      --soft:    #F4F7FC;
+      --rule:    #D8E2EF;
+      --navy:    #0F1825;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      background: #D0D8E8;
+      color: var(--ink-2);
+      max-width: 794px;
+      margin: 0 auto;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* ── HEADER ── */
+    .hdr {
+      background: var(--navy);
+      padding: 48px 56px 60px;
+    }
+    .logo-wrap {
+      display: inline-block;
+      background: white;
+      border-radius: 10px;
+      padding: 8px 14px;
+      margin-bottom: 36px;
+    }
+    .logo-wrap img {
+      height: 48px;
+      width: auto;
+      display: block;
+    }
+    .hdr-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid rgba(212,160,40,0.45);
+      background: rgba(212,160,40,0.1);
+      border-radius: 100px;
+      padding: 4px 13px 4px 9px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.6px;
+      color: #E8C060;
+      margin-bottom: 18px;
+    }
+    .hdr-pill span {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #E8C060;
+    }
+    .hdr-title {
+      font-size: 46px;
+      font-weight: 800;
+      color: white;
+      line-height: 1.06;
+      letter-spacing: -0.6px;
+      text-wrap: balance;
+      margin-bottom: 14px;
+    }
+    .hdr-sub {
+      font-size: 15.5px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.5;
+    }
+
+    /* ── QUOTE ── */
+    .quote-wrap {
+      background: var(--bg);
+      padding: 48px 56px;
+    }
+    .quote-inner {
+      border-left: 3px solid var(--gold);
+      padding-left: 24px;
+    }
+    .quote-text {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 18px;
+      line-height: 1.82;
+      color: var(--ink-2);
+      font-style: italic;
+    }
+    .quote-author-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .quote-avatar {
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      flex-shrink: 0;
+      border: 2px solid var(--gold-lt);
+    }
+    .quote-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .quote-role {
+      font-size: 12px;
+      color: var(--ink-4);
+      margin-top: 3px;
+    }
+
+    /* ── RULE ── */
+    .rule { height: 1px; background: var(--rule); margin: 0 56px; }
+
+    /* ── SECTION ── */
+    .sec       { background: var(--bg);   padding: 44px 56px; }
+    .sec-soft  { background: var(--soft); padding: 44px 56px; }
+
+    .sec-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .sec-eyebrow::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .sec-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -0.4px;
+      margin-bottom: 32px;
+      text-wrap: balance;
+    }
+
+    /* ── FEATURES ── */
+    .features { display: flex; flex-direction: column; }
+    .feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .feature:first-child { padding-top: 0; }
+    .feature:last-child  { border-bottom: none; padding-bottom: 0; }
+    .feat-icon { font-size: 30px; width: 40px; text-align: center; flex-shrink: 0; margin-top: 2px; }
+    .feat-name { font-size: 15.5px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+    .feat-desc { font-size: 13.5px; color: var(--ink-3); line-height: 1.55; }
+
+    /* ── STEPS ── */
+    .steps { display: flex; flex-direction: column; }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .step:first-child { padding-top: 0; }
+    .step:last-child  { border-bottom: none; padding-bottom: 0; }
+    .step-n {
+      width: 30px; height: 30px;
+      flex-shrink: 0;
+      border: 1.5px solid var(--ink);
+      color: var(--ink);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 13px;
+      margin-top: 3px;
+    }
+    .step-t {
+      font-size: 15px;
+      color: var(--ink-2);
+      line-height: 1.62;
+      padding-top: 4px;
+    }
+    .step-t strong { color: var(--ink); }
+
+    /* ── INSTALL ── */
+    .install-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .install-col {
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      padding: 24px;
+      background: var(--bg);
+    }
+    .install-col-hdr {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 16px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .install-col .step { padding: 10px 0; }
+    .install-col .step-n {
+      width: 22px; height: 22px;
+      font-size: 10.5px;
+      border-color: var(--rule);
+      color: var(--ink-3);
+    }
+    .install-col .step-t { font-size: 12.5px; padding-top: 1px; }
+
+    /* ── QR ── */
+    .qr-wrap {
+      background: var(--navy);
+      padding: 56px 56px;
+      text-align: center;
+    }
+    .qr-eyebrow {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #E8C060;
+      margin-bottom: 12px;
+    }
+    .qr-title {
+      font-size: 25px;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 6px;
+    }
+    .qr-sub {
+      font-size: 14px;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 36px;
+    }
+    .qr-frame {
+      display: inline-block;
+      background: white;
+      border-radius: 20px;
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+    .qr-frame img { display: block; border-radius: 6px; }
+    .qr-url {
+      font-size: 20px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: #07101A;
+      padding: 18px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer span { font-size: 12px; color: rgba(255,255,255,0.3); }
+    .footer a { color: rgba(255,255,255,0.45); text-decoration: none; }
+
+    @media print {
+      body { background: white; max-width: 100%; }
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hdr">
+    <div class="logo-wrap">
+      <img src="IMAGENS/LOGO.png" alt="Guia de Férias">
+    </div>
+    <div class="hdr-pill"><span></span>Bem-vinda à sua compra</div>
+    <h1 class="hdr-title">Bem-vinda ao<br>Guia de Férias!</h1>
+    <p class="hdr-sub">Seu manual digital de atividades para as férias em família</p>
+  </header>
+
+  <div class="quote-wrap">
+    <div class="quote-inner">
+      <p class="quote-text">Que alegria ter você aqui! O Guia de Férias foi criado com muito carinho para te ajudar a aproveitar as férias com mais leveza, criatividade e conexão com seus filhos. Agora é só acessar e explorar tudo que preparei para vocês. Aproveitem muito!</p>
+      <div class="quote-author-row">
+        <img class="quote-avatar" src="IMAGENS/lourdes.jpg" alt="Lourdes Corsi">
+        <div>
+          <div class="quote-name">Lourdes Corsi</div>
+          <div class="quote-role">educadora parental</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <section class="sec">
+    <p class="sec-eyebrow">Conteúdo</p>
+    <h2 class="sec-title">O que você vai encontrar no app</h2>
+    <div class="features">
+      <div class="feature">
+        <div class="feat-icon">🎨</div>
+        <div><div class="feat-name">140 Atividades</div><div class="feat-desc">Organizadas por faixa etária — 1 a 2 anos, 2+, 3+, 5+ e 7 anos em diante</div></div>
+      </div>
+      <div class="feature">
+        <div class="feat-icon">📅</div>
+        <div><div class="feat-name">Planner de Rotina</div><div class="feat-desc">Organize os momentos do dia com 13 blocos de rotina já estruturados</div></div>
+      </div>
+      <div class="feature">
+        <div class="feat-icon">🍓</div>
+        <div><div class="feat-name">Receitas Saudáveis</div><div class="feat-desc">Receitas gostosas e práticas de fazer com as crianças</div></div>
+      </div>
+      <div class="feature">
+        <div class="feat-icon">📱</div>
+        <div><div class="feat-name">Momentos com Tela</div><div class="feat-desc">Sugestões de conteúdo de qualidade para quando a telinha for necessária</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="sec">
+    <p class="sec-eyebrow">Acesso</p>
+    <h2 class="sec-title">Como acessar o app</h2>
+    <div class="steps">
+      <div class="step"><div class="step-n">1</div><p class="step-t">Confira seu <strong>email</strong> — o mesmo que você usou na compra</p></div>
+      <div class="step"><div class="step-n">2</div><p class="step-t">Você recebeu um email com a sua <strong>senha de acesso</strong></p></div>
+      <div class="step"><div class="step-n">3</div><p class="step-t">Abra o navegador do celular e acesse <strong>app.lourdescorsi.com</strong></p></div>
+      <div class="step"><div class="step-n">4</div><p class="step-t">Digite seu <strong>email</strong> e a <strong>senha</strong> que você recebeu</p></div>
+      <div class="step"><div class="step-n">5</div><p class="step-t">Pronto! Você já está dentro do Guia de Férias 🎉</p></div>
+    </div>
+  </section>
+
+  <section class="sec-soft">
+    <p class="sec-eyebrow">Instalação</p>
+    <h2 class="sec-title">Como colocar o ícone na tela do celular</h2>
+    <div class="install-grid">
+      <div class="install-col">
+        <div class="install-col-hdr">📱 iPhone (Safari)</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><p class="step-t">Abra <strong>app.lourdescorsi.com</strong> no <strong>Safari</strong></p></div>
+          <div class="step"><div class="step-n">2</div><p class="step-t">Toque no ícone de compartilhar <strong>⬆️</strong> na barra inferior</p></div>
+          <div class="step"><div class="step-n">3</div><p class="step-t">Role e toque em <strong>"Adicionar à Tela de Início"</strong></p></div>
+          <div class="step"><div class="step-n">4</div><p class="step-t">Toque em <strong>"Adicionar"</strong> no canto superior direito</p></div>
+        </div>
+      </div>
+      <div class="install-col">
+        <div class="install-col-hdr">🤖 Android (Chrome)</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><p class="step-t">Abra <strong>app.lourdescorsi.com</strong> no <strong>Chrome</strong></p></div>
+          <div class="step"><div class="step-n">2</div><p class="step-t">Toque nos três pontinhos <strong>⋮</strong> no canto superior direito</p></div>
+          <div class="step"><div class="step-n">3</div><p class="step-t">Toque em <strong>"Adicionar à tela inicial"</strong> ou <strong>"Instalar app"</strong></p></div>
+          <div class="step"><div class="step-n">4</div><p class="step-t">Confirme tocando em <strong>"Adicionar"</strong></p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="qr-wrap">
+    <p class="qr-eyebrow">Acesso rápido</p>
+    <h2 class="qr-title">Aponte a câmera e acesse direto</h2>
+    <p class="qr-sub">Sem precisar digitar o endereço</p>
+    <div class="qr-frame">
+      <img
+        src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fapp.lourdescorsi.com&color=0F1825&bgcolor=FFFFFF&qzone=1&margin=0"
+        width="180" height="180"
+        alt="QR Code — app.lourdescorsi.com"
+      >
+    </div>
+    <p class="qr-url">app.lourdescorsi.com</p>
+  </div>
+
+  <footer class="footer">
+    <span>Método LAR · Lourdes Corsi</span>
+    <span>Dúvidas? <a href="mailto:contato@lourdescorsi.com.br">contato@lourdescorsi.com.br</a></span>
+  </footer>
+
+</body>
+</html>

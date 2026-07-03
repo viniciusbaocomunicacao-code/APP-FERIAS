@@ -52,8 +52,78 @@
   <!-- Main content -->
   <main>
 
+    <!-- ── Home Tab ── -->
+    <section class="tab-content active" id="tab-home">
+      <div class="home-greeting">
+        <div class="home-greeting-title">Olá! 👋</div>
+        <div class="home-greeting-sub">Boas-vindas ao seu Guia de Férias</div>
+      </div>
+
+      <div class="home-block">
+        <div class="home-block-label">Acesso rápido</div>
+        <div class="home-shortcuts">
+          <button class="shortcut-card" onclick="switchTab('atividades')">
+            <div class="shortcut-icon">🎨</div>
+            <div class="shortcut-name">Atividades</div>
+            <div class="shortcut-meta">140 brincadeiras</div>
+          </button>
+          <button class="shortcut-card" onclick="switchTab('planner')">
+            <div class="shortcut-icon">📅</div>
+            <div class="shortcut-name">Planner</div>
+            <div class="shortcut-meta">Rotina da semana</div>
+          </button>
+          <button class="shortcut-card" onclick="switchTab('receitas')">
+            <div class="shortcut-icon">🍓</div>
+            <div class="shortcut-name">Receitas</div>
+            <div class="shortcut-meta">35 receitinhas</div>
+          </button>
+          <button class="shortcut-card" onclick="switchTab('desenhos')">
+            <div class="shortcut-icon">📺</div>
+            <div class="shortcut-name">Tela</div>
+            <div class="shortcut-meta">Conteúdo curado</div>
+          </button>
+        </div>
+      </div>
+
+      <div class="home-block">
+        <div class="home-block-label">Mais do Método LAR</div>
+        <div class="home-block-sub">Outros recursos para você e seus filhos</div>
+        <div class="netflix-row">
+          <!-- TODO: atualize os hrefs com as URLs reais das páginas de venda -->
+          <a class="netflix-card" href="https://lourdescorsi.com/sos-birras" target="_blank" rel="noopener">
+            <div class="netflix-thumb" style="background-image:url('IMAGENS/produtos/sos-birras.png')"></div>
+            <div class="netflix-overlay">
+              <svg class="netflix-lock" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <div class="netflix-name">SOS Birras</div>
+          </a>
+          <a class="netflix-card" href="https://lourdescorsi.com/sem-telas" target="_blank" rel="noopener">
+            <div class="netflix-thumb" style="background-image:url('IMAGENS/produtos/sem-telas.png')"></div>
+            <div class="netflix-overlay">
+              <svg class="netflix-lock" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <div class="netflix-name">Infância Sem Telas</div>
+          </a>
+          <a class="netflix-card" href="https://lourdescorsi.com/rotina-visual" target="_blank" rel="noopener">
+            <div class="netflix-thumb" style="background-image:url('IMAGENS/produtos/rotina-visual.jpg')"></div>
+            <div class="netflix-overlay">
+              <svg class="netflix-lock" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <div class="netflix-name">Rotina Visual</div>
+          </a>
+          <a class="netflix-card" href="https://lourdescorsi.com/4-temperamentos" target="_blank" rel="noopener">
+            <div class="netflix-thumb" style="background-image:url('IMAGENS/produtos/temperamentos.png')"></div>
+            <div class="netflix-overlay">
+              <svg class="netflix-lock" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <div class="netflix-name">4 Temperamentos</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- ── Atividades Tab ── -->
-    <section class="tab-content active" id="tab-atividades">
+    <section class="tab-content" id="tab-atividades">
       <div class="section-header">
         <div class="section-title">Atividades</div>
         <div class="section-subtitle">140 brincadeiras organizadas por faixa etária</div>
@@ -188,8 +258,12 @@
 
   <!-- Bottom Nav -->
   <nav class="bottom-nav">
-    <button class="nav-btn active" data-tab="atividades">
-      <span class="nav-icon">🎮</span>
+    <button class="nav-btn active" data-tab="home">
+      <span class="nav-icon">🏠</span>
+      <span class="nav-label">Início</span>
+    </button>
+    <button class="nav-btn" data-tab="atividades">
+      <span class="nav-icon">🎨</span>
       <span class="nav-label">Atividades</span>
     </button>
     <button class="nav-btn" data-tab="planner">

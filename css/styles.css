@@ -2368,6 +2368,150 @@ main {
   background: var(--bg);
 }
 
+/* ── Home Tab ──────────────────────────────────────────── */
+.home-greeting {
+  padding: 24px 20px 16px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.home-greeting-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text);
+}
+.home-greeting-sub {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.home-block {
+  padding: 20px 20px 0;
+}
+.home-block + .home-block {
+  padding-top: 8px;
+}
+.home-block:last-child {
+  padding-bottom: 24px;
+}
+.home-block-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+.home-block-sub {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  margin-top: -8px;
+  margin-bottom: 14px;
+}
+
+/* Shortcuts */
+.home-shortcuts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.shortcut-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.12s, box-shadow 0.12s;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.shortcut-card:active {
+  transform: scale(0.97);
+  box-shadow: none;
+}
+.shortcut-icon {
+  font-size: 26px;
+  line-height: 1;
+}
+.shortcut-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+}
+.shortcut-meta {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* Netflix row */
+.netflix-row {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.netflix-row::-webkit-scrollbar { display: none; }
+
+.netflix-card {
+  flex-shrink: 0;
+  width: 130px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  display: block;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  transition: transform 0.15s;
+}
+.netflix-card:active { transform: scale(0.96); }
+
+.netflix-thumb {
+  height: 180px;
+  background-size: cover;
+  background-position: center top;
+  background-color: var(--primary-light);
+}
+.netflix-overlay {
+  position: absolute;
+  inset: 0 0 36px 0;
+  background: rgba(10,14,30,0.62);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.netflix-lock {
+  width: 32px;
+  height: 32px;
+  opacity: 0.9;
+}
+.netflix-name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 36px;
+  background: var(--text);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  line-height: 1.2;
+}
+
+/* Dark mode adjustments for home */
+html.dark-mode .netflix-name { background: #0D1120; }
+html.dark-mode .netflix-overlay { background: rgba(5,8,18,0.7); }
+
 /* ── Dark Mode ─────────────────────────────────────────── */
 html.dark-mode {
   --primary: #5B82D6;
