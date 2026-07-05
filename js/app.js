@@ -887,9 +887,13 @@ function renderShowCard(s, inCurated) {
     return info ? `<span class="show-badge-chip" style="background:${info.color}20;color:${info.color};border-color:${info.color}40">${info.emoji} ${b}</span>` : '';
   }).join('');
 
+  const thumbStyle = s.thumbnail
+    ? `background-image:url('${s.thumbnail}');background-size:cover;background-position:center top`
+    : `background:linear-gradient(135deg,${m.bgColor},${m.bgColor}cc)`;
+
   return `<div class="show-card${inCurated ? ' show-card-curated' : ''}" data-id="${s.id}">
-    <div class="show-card-thumb" style="background:linear-gradient(135deg,${m.bgColor},${m.bgColor}cc)">
-      <span class="show-card-emoji">${s.emoji}</span>
+    <div class="show-card-thumb" style="${thumbStyle}">
+      ${s.thumbnail ? '' : `<span class="show-card-emoji">${s.emoji}</span>`}
       <div class="show-stim-badge" style="background:${m.dotColor}">${s.stimulationLabel || m.label}</div>
       <button class="show-fav-btn${fav ? ' active' : ''}" data-id="${s.id}" aria-label="${fav ? 'Remover favorito' : 'Favoritar'}">
         ${fav ? '♥' : '♡'}

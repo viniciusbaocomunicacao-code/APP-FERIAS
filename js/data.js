@@ -1373,7 +1373,8 @@ const SCREEN_CONTENT = [
   // ── LEVEL 1 — Muito baixo estímulo ──────────────────
   {
     id: 'little-bear',
-    title: 'Urso Pequenino',
+    thumbnail: 'IMAGENS/shows/little-bear.jpg',
+    title: 'O Pequeno Urso',
     ageRange: '0–5 anos',
     minAge: 0, maxAge: 5,
     stimulationLevel: 1,
@@ -1403,6 +1404,7 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'puffin-rock',
+    thumbnail: 'IMAGENS/shows/puffin-rock.jpg',
     title: 'Puffin Rock',
     ageRange: '2–6 anos',
     minAge: 2, maxAge: 6,
@@ -1433,7 +1435,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'trash-truck',
-    title: 'Caminhão de Lixo',
+    thumbnail: 'IMAGENS/shows/trash-truck.jpg',
+    title: 'Zé Coleta',
     ageRange: '2–5 anos',
     minAge: 2, maxAge: 5,
     stimulationLevel: 1,
@@ -1463,7 +1466,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'sarah-and-duck',
-    title: 'Sara e o Pato',
+    thumbnail: 'IMAGENS/shows/sarah-and-duck.jpg',
+    title: 'Sarah e o Pato',
     ageRange: '2–6 anos',
     minAge: 2, maxAge: 6,
     stimulationLevel: 1,
@@ -1493,7 +1497,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'kipper',
-    title: 'Kipper, o Cachorrinho',
+    thumbnail: 'IMAGENS/shows/kipper.jpg',
+    title: 'Kipper',
     ageRange: '1–4 anos',
     minAge: 1, maxAge: 4,
     stimulationLevel: 1,
@@ -1523,6 +1528,7 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'maisy',
+    thumbnail: 'IMAGENS/shows/maisy.jpg',
     title: 'Maisy',
     ageRange: '0–4 anos',
     minAge: 0, maxAge: 4,
@@ -1553,7 +1559,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'oswald',
-    title: 'Oswaldo',
+    thumbnail: 'IMAGENS/shows/oswald.jpg',
+    title: 'Oswald',
     ageRange: '2–5 anos',
     minAge: 2, maxAge: 5,
     stimulationLevel: 1,
@@ -1583,6 +1590,7 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'guess-how-much-i-love-you',
+    thumbnail: 'IMAGENS/shows/guess-how-much-i-love-you.jpg',
     title: 'Adivinha o Quanto Eu Te Amo',
     ageRange: '0–4 anos',
     minAge: 0, maxAge: 4,
@@ -1613,7 +1621,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'tumble-leaf',
-    title: 'Tumble Leaf',
+    thumbnail: 'IMAGENS/shows/tumble-leaf.jpg',
+    title: 'Folha Mágica',
     ageRange: '2–5 anos',
     minAge: 2, maxAge: 5,
     stimulationLevel: 1,
@@ -1643,7 +1652,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'stillwater',
-    title: 'Stillwater',
+    thumbnail: 'IMAGENS/shows/stillwater.jpg',
+    title: 'Sereno: O Panda Zen',
     ageRange: '4–8 anos',
     minAge: 4, maxAge: 8,
     stimulationLevel: 1,
@@ -1673,7 +1683,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'peter-rabbit-and-friends',
-    title: 'O Mundo de Pedro Coelho e seus Amigos',
+    thumbnail: 'IMAGENS/shows/peter-rabbit-and-friends.jpg',
+    title: 'Pedro Coelho e seus Amigos',
     ageRange: '2–6 anos',
     minAge: 2, maxAge: 6,
     stimulationLevel: 1,
@@ -1703,7 +1714,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'moominvalley',
-    title: 'O Vale dos Moomins',
+    thumbnail: 'IMAGENS/shows/moominvalley.jpg',
+    title: 'Moominvalley',
     ageRange: '3–8 anos',
     minAge: 3, maxAge: 8,
     stimulationLevel: 1,
@@ -1733,6 +1745,7 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'franklin',
+    thumbnail: 'IMAGENS/shows/franklin.jpg',
     title: 'Franklin',
     ageRange: '3–7 anos',
     minAge: 3, maxAge: 7,
@@ -1763,7 +1776,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'jojo-gran-gran',
-    title: 'JoJo e a Vovó',
+    thumbnail: 'IMAGENS/shows/jojo-gran-gran.jpg',
+    title: 'JoJo e Gran Gran',
     ageRange: '2–5 anos',
     minAge: 2, maxAge: 5,
     stimulationLevel: 1,
@@ -1793,6 +1807,7 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'lucas-the-spider',
+    thumbnail: 'IMAGENS/shows/lucas-the-spider.jpg',
     title: 'Lucas, a Aranha',
     ageRange: '2–6 anos',
     minAge: 2, maxAge: 6,
@@ -1825,6 +1840,7 @@ const SCREEN_CONTENT = [
   // ── LEVEL 2 — Baixo estímulo ────────────────────────
   {
     id: 'bluey',
+    thumbnail: 'IMAGENS/shows/bluey.jpg',
     title: 'Bluey',
     ageRange: '2–7 anos',
     minAge: 2, maxAge: 7,
@@ -1855,7 +1871,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'daniel-tigers-neighborhood',
-    title: 'Daniel Tiger\'s Neighborhood',
+    thumbnail: 'IMAGENS/shows/daniel-tigers-neighborhood.jpg',
+    title: 'Daniel Tigre's Neighborhood',
     ageRange: '2–5 anos',
     minAge: 2, maxAge: 5,
     stimulationLevel: 2,
@@ -1885,7 +1902,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'adventures-of-paddington',
-    title: 'As Aventuras do Ursinho Paddington',
+    thumbnail: 'IMAGENS/shows/adventures-of-paddington.jpg',
+    title: 'As Aventuras de Paddington',
     ageRange: '2–6 anos',
     minAge: 2, maxAge: 6,
     stimulationLevel: 2,
@@ -1915,6 +1933,7 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'bing',
+    thumbnail: 'IMAGENS/shows/bing.jpg',
     title: 'Bing',
     ageRange: '1–4 anos',
     minAge: 1, maxAge: 4,
@@ -1945,7 +1964,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'elinor-wonders-why',
-    title: 'Por Que Será, Elinor?',
+    thumbnail: 'IMAGENS/shows/elinor-wonders-why.jpg',
+    title: 'Elinor, a Curiosa',
     ageRange: '3–7 anos',
     minAge: 3, maxAge: 7,
     stimulationLevel: 2,
@@ -1975,7 +1995,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'curious-george',
-    title: 'Curioso Como George',
+    thumbnail: 'IMAGENS/shows/curious-george.jpg',
+    title: 'George, o Curioso',
     ageRange: '2–6 anos',
     minAge: 2, maxAge: 6,
     stimulationLevel: 2,
@@ -2005,6 +2026,7 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'pocoyo',
+    thumbnail: 'IMAGENS/shows/pocoyo.jpg',
     title: 'Pocoyo',
     ageRange: '0–4 anos',
     minAge: 0, maxAge: 4,
@@ -2035,7 +2057,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'peep-and-the-big-wide-world',
-    title: 'Piu e o Grande Mundo',
+    thumbnail: 'IMAGENS/shows/peep-and-the-big-wide-world.jpg',
+    title: 'Peep and the Big Wide World',
     ageRange: '2–5 anos',
     minAge: 2, maxAge: 5,
     stimulationLevel: 2,
@@ -2065,7 +2088,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'timmy-time',
-    title: 'A Hora do Timmy',
+    thumbnail: 'IMAGENS/shows/timmy-time.jpg',
+    title: 'Timmy e Seus Amigos',
     ageRange: '1–4 anos',
     minAge: 1, maxAge: 4,
     stimulationLevel: 2,
@@ -2095,7 +2119,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'berenstain-bears',
-    title: 'Os Ursos Berenstain',
+    thumbnail: 'IMAGENS/shows/berenstain-bears.jpg',
+    title: 'The Berenstain Bears',
     ageRange: '2–7 anos',
     minAge: 2, maxAge: 7,
     stimulationLevel: 2,
@@ -2125,6 +2150,7 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'charlie-and-lola',
+    thumbnail: 'IMAGENS/shows/charlie-and-lola.jpg',
     title: 'Charlie e Lola',
     ageRange: '2–6 anos',
     minAge: 2, maxAge: 6,
@@ -2155,7 +2181,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'frog-and-toad',
-    title: 'Sapo e Pateta',
+    thumbnail: 'IMAGENS/shows/frog-and-toad.jpg',
+    title: 'Rã e Sapo',
     ageRange: '3–7 anos',
     minAge: 3, maxAge: 7,
     stimulationLevel: 2,
@@ -2185,7 +2212,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'if-you-give-a-mouse-a-cookie',
-    title: 'Se Você Dar um Biscoito ao Rato',
+    thumbnail: 'IMAGENS/shows/if-you-give-a-mouse-a-cookie.jpg',
+    title: 'Se Der um Biscoito a um Rato',
     ageRange: '2–5 anos',
     minAge: 2, maxAge: 5,
     stimulationLevel: 2,
@@ -2215,7 +2243,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'bear-in-the-big-blue-house',
-    title: 'O Urso na Casa Azul Grande',
+    thumbnail: 'IMAGENS/shows/bear-in-the-big-blue-house.jpg',
+    title: 'O Urso na Casa Azul',
     ageRange: '1–5 anos',
     minAge: 1, maxAge: 5,
     stimulationLevel: 2,
@@ -2245,7 +2274,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'clifford-the-big-red-dog',
-    title: 'Clifford, o Gigante Cão Vermelho',
+    thumbnail: 'IMAGENS/shows/clifford-the-big-red-dog.jpg',
+    title: 'Clifford, o Cão Gigante',
     ageRange: '2–6 anos',
     minAge: 2, maxAge: 6,
     stimulationLevel: 2,
@@ -2277,6 +2307,7 @@ const SCREEN_CONTENT = [
   // ── LEVEL 3 — Moderado ──────────────────────────────
   {
     id: 'sesame-street',
+    thumbnail: 'IMAGENS/shows/sesame-street.jpg',
     title: 'Vila Sésamo',
     ageRange: '2–6 anos',
     minAge: 2, maxAge: 6,
@@ -2307,7 +2338,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'mickey-mouse-clubhouse',
-    title: 'O Clubinho do Mickey',
+    thumbnail: 'IMAGENS/shows/mickey-mouse-clubhouse.jpg',
+    title: 'A Casa do Mickey Mouse',
     ageRange: '2–5 anos',
     minAge: 2, maxAge: 5,
     stimulationLevel: 3,
@@ -2337,6 +2369,7 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'doc-mcstuffins',
+    thumbnail: 'IMAGENS/shows/doc-mcstuffins.jpg',
     title: 'Doutora Brinquedos',
     ageRange: '2–6 anos',
     minAge: 2, maxAge: 6,
@@ -2367,6 +2400,7 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'octonauts',
+    thumbnail: 'IMAGENS/shows/octonauts.jpg',
     title: 'Octonautas',
     ageRange: '3–8 anos',
     minAge: 3, maxAge: 8,
@@ -2397,6 +2431,7 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'arthur',
+    thumbnail: 'IMAGENS/shows/arthur.jpg',
     title: 'Arthur',
     ageRange: '4–8 anos',
     minAge: 4, maxAge: 8,
@@ -2427,7 +2462,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'wild-kratts',
-    title: 'Irmãos Kratts',
+    thumbnail: 'IMAGENS/shows/wild-kratts.jpg',
+    title: 'Aventura com os Kratts',
     ageRange: '4–9 anos',
     minAge: 4, maxAge: 9,
     stimulationLevel: 3,
@@ -2457,7 +2493,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'cat-in-the-hat',
-    title: 'O Gato do Chapéu Sabe Muito Sobre Isso!',
+    thumbnail: 'IMAGENS/shows/cat-in-the-hat.jpg',
+    title: 'O Gatola da Cartola',
     ageRange: '3–7 anos',
     minAge: 3, maxAge: 7,
     stimulationLevel: 3,
@@ -2487,7 +2524,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'postman-pat',
-    title: 'O Carteiro Pat',
+    thumbnail: 'IMAGENS/shows/postman-pat.jpg',
+    title: 'Carteiro Paulo',
     ageRange: '2–6 anos',
     minAge: 2, maxAge: 6,
     stimulationLevel: 3,
@@ -2517,6 +2555,7 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'shaun-the-sheep',
+    thumbnail: 'IMAGENS/shows/shaun-the-sheep.jpg',
     title: 'Shaun, o Carneiro',
     ageRange: '2–8 anos',
     minAge: 2, maxAge: 8,
@@ -2547,7 +2586,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'ada-twist-scientist',
-    title: 'Ada Giro, Cientista',
+    thumbnail: 'IMAGENS/shows/ada-twist-scientist.jpg',
+    title: 'Ada Batista, Cientista',
     ageRange: '3–7 anos',
     minAge: 3, maxAge: 7,
     stimulationLevel: 3,
@@ -2577,6 +2617,7 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'numberblocks',
+    thumbnail: 'IMAGENS/shows/numberblocks.jpg',
     title: 'Numberblocks',
     ageRange: '2–6 anos',
     minAge: 2, maxAge: 6,
@@ -2607,6 +2648,7 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'alphablocks',
+    thumbnail: 'IMAGENS/shows/alphablocks.jpg',
     title: 'Alphablocks',
     ageRange: '2–5 anos',
     minAge: 2, maxAge: 5,
@@ -2637,7 +2679,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'hey-duggee',
-    title: 'Oi Duggee!',
+    thumbnail: 'IMAGENS/shows/hey-duggee.jpg',
+    title: 'Hey Duggee',
     ageRange: '2–6 anos',
     minAge: 2, maxAge: 6,
     stimulationLevel: 3,
@@ -2667,6 +2710,7 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'dino-dana',
+    thumbnail: 'IMAGENS/shows/dino-dana.jpg',
     title: 'Dino Dana',
     ageRange: '4–9 anos',
     minAge: 4, maxAge: 9,
@@ -2697,7 +2741,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'storybots',
-    title: 'StoryBots',
+    thumbnail: 'IMAGENS/shows/storybots.jpg',
+    title: 'Pergunte aos StoryBots',
     ageRange: '3–7 anos',
     minAge: 3, maxAge: 7,
     stimulationLevel: 3,
@@ -2729,6 +2774,7 @@ const SCREEN_CONTENT = [
   // ── CRIANÇAS MAIORES — mix de estímulo 1, 2 e 3 ────
   {
     id: 'hilda',
+    thumbnail: 'IMAGENS/shows/hilda.jpg',
     title: 'Hilda',
     ageRange: '6–12 anos',
     minAge: 6, maxAge: 12,
@@ -2759,6 +2805,7 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'avatar-the-last-airbender',
+    thumbnail: 'IMAGENS/shows/avatar-the-last-airbender.jpg',
     title: 'Avatar: A Lenda de Aang',
     ageRange: '7–12 anos',
     minAge: 7, maxAge: 12,
@@ -2789,6 +2836,7 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'carmen-sandiego',
+    thumbnail: 'IMAGENS/shows/carmen-sandiego.jpg',
     title: 'Carmen Sandiego',
     ageRange: '6–12 anos',
     minAge: 6, maxAge: 12,
@@ -2819,7 +2867,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'the-dragon-prince',
-    title: 'O Príncipe do Dragão',
+    thumbnail: 'IMAGENS/shows/the-dragon-prince.jpg',
+    title: 'O Príncipe Dragão',
     ageRange: '7–12 anos',
     minAge: 7, maxAge: 12,
     stimulationLevel: 2,
@@ -2849,6 +2898,7 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'magic-school-bus',
+    thumbnail: 'IMAGENS/shows/magic-school-bus.jpg',
     title: 'O Ônibus Mágico',
     ageRange: '5–10 anos',
     minAge: 5, maxAge: 10,
@@ -2879,7 +2929,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'magic-school-bus-rides-again',
-    title: 'O Ônibus Mágico de Volta',
+    thumbnail: 'IMAGENS/shows/magic-school-bus-rides-again.jpg',
+    title: 'O Ônibus Mágico Decola Novamente',
     ageRange: '5–10 anos',
     minAge: 5, maxAge: 10,
     stimulationLevel: 3,
@@ -2909,6 +2960,7 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'snoopy-in-space',
+    thumbnail: 'IMAGENS/shows/snoopy-in-space.jpg',
     title: 'Snoopy no Espaço',
     ageRange: '5–10 anos',
     minAge: 5, maxAge: 10,
@@ -2939,7 +2991,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'the-snoopy-show',
-    title: 'O Show do Snoopy',
+    thumbnail: 'IMAGENS/shows/the-snoopy-show.jpg',
+    title: 'Snoopy e Sua Turma',
     ageRange: '4–9 anos',
     minAge: 4, maxAge: 9,
     stimulationLevel: 2,
@@ -2969,6 +3022,7 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'peanuts',
+    thumbnail: 'IMAGENS/shows/peanuts.jpg',
     title: 'Turma do Charlie Brown',
     ageRange: '4–9 anos',
     minAge: 4, maxAge: 9,
@@ -2999,7 +3053,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'molly-of-denali',
-    title: 'Molly de Denali',
+    thumbnail: 'IMAGENS/shows/molly-of-denali.jpg',
+    title: 'Molly of Denali',
     ageRange: '4–8 anos',
     minAge: 4, maxAge: 8,
     stimulationLevel: 2,
@@ -3029,7 +3084,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'xavier-riddle',
-    title: 'Xavier Riddle e o Museu Secreto',
+    thumbnail: 'IMAGENS/shows/xavier-riddle.jpg',
+    title: 'Xavier Riddle and the Secret Museum',
     ageRange: '4–8 anos',
     minAge: 4, maxAge: 8,
     stimulationLevel: 2,
@@ -3059,7 +3115,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'ready-jet-go',
-    title: 'Jet, Vamos Lá!',
+    thumbnail: 'IMAGENS/shows/ready-jet-go.jpg',
+    title: 'Ready Jet Go!',
     ageRange: '3–8 anos',
     minAge: 3, maxAge: 8,
     stimulationLevel: 3,
@@ -3089,7 +3146,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'nature-cat',
-    title: 'Gato da Natureza',
+    thumbnail: 'IMAGENS/shows/nature-cat.jpg',
+    title: 'Nature Cat',
     ageRange: '3–7 anos',
     minAge: 3, maxAge: 7,
     stimulationLevel: 2,
@@ -3119,7 +3177,8 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'odd-squad',
-    title: 'Equipe Especial',
+    thumbnail: 'IMAGENS/shows/odd-squad.jpg',
+    title: 'Odd Squad',
     ageRange: '5–10 anos',
     minAge: 5, maxAge: 10,
     stimulationLevel: 3,
@@ -3149,6 +3208,7 @@ const SCREEN_CONTENT = [
   },
   {
     id: 'the-deep',
+    thumbnail: 'IMAGENS/shows/the-deep.jpg',
     title: 'O Fundo do Mar',
     ageRange: '6–12 anos',
     minAge: 6, maxAge: 12,
