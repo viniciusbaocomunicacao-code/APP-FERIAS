@@ -1,4 +1,4 @@
-const CACHE = 'guia-ferias-v14';
+const CACHE = 'guia-ferias-v15';
 const ASSETS = [
   '/',
   '/index.html',

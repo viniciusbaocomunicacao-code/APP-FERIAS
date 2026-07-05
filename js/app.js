@@ -127,8 +127,8 @@ function openProductPopup(card) {
   document.getElementById('product-popup-desc').textContent = card.dataset.desc || '';
 
   const footer = document.getElementById('product-popup-footer');
-  if (isLocked && card.dataset.url) {
-    const ctaLabel = card.dataset.cta || 'Ver produto →';
+  if (card.dataset.url) {
+    const ctaLabel = card.dataset.cta || (isLocked ? 'Ver produto →' : 'Acessar →');
     footer.innerHTML = `<a class="product-popup-cta" href="${card.dataset.url}" target="_blank" rel="noopener">${ctaLabel}</a>`;
     footer.style.display = '';
   } else {
