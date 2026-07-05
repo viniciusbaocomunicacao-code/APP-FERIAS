@@ -1737,7 +1737,7 @@ const SCREEN_CONTENT = [
 {
     id: 'daniel-tigers-neighborhood',
     thumbnail: 'IMAGENS/shows/daniel-tigers-neighborhood.jpg',
-    title: 'Daniel Tigre's Neighborhood',
+    title: 'Daniel Tigre',
     ageRange: '2–5 anos',
     minAge: 2, maxAge: 5,
     stimulationLevel: 2,
