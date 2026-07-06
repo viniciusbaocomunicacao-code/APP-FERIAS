@@ -170,27 +170,70 @@
 
     <!-- ── Atividades Tab ── -->
     <section class="tab-content" id="tab-atividades">
-      <div class="section-header">
-        <div class="section-title">Atividades</div>
-        <div class="section-subtitle">140 brincadeiras organizadas por faixa etária</div>
+      <!-- Passo 1: seleção de faixa etária -->
+      <div id="act-age-selector">
+        <div class="section-header">
+          <div class="section-title">Atividades</div>
+          <div class="section-subtitle">Qual é a faixa etária do seu filho?</div>
+        </div>
+        <div class="age-selector-grid">
+          <button class="age-selector-card" data-age="0-3m" data-emoji="🍼">
+            <span class="age-sel-emoji">🍼</span>
+            <span class="age-sel-label">0 a 3 meses</span>
+          </button>
+          <button class="age-selector-card" data-age="3-6m" data-emoji="🌱">
+            <span class="age-sel-emoji">🌱</span>
+            <span class="age-sel-label">3 a 6 meses</span>
+          </button>
+          <button class="age-selector-card" data-age="6-9m" data-emoji="🐣">
+            <span class="age-sel-emoji">🐣</span>
+            <span class="age-sel-label">6 a 9 meses</span>
+          </button>
+          <button class="age-selector-card" data-age="9-12m" data-emoji="🐥">
+            <span class="age-sel-emoji">🐥</span>
+            <span class="age-sel-label">9 a 12 meses</span>
+          </button>
+          <button class="age-selector-card" data-age="1-2a" data-emoji="👶">
+            <span class="age-sel-emoji">👶</span>
+            <span class="age-sel-label">1 a 2 anos</span>
+          </button>
+          <button class="age-selector-card" data-age="2+" data-emoji="🧒">
+            <span class="age-sel-emoji">🧒</span>
+            <span class="age-sel-label">2 anos ou mais</span>
+          </button>
+          <button class="age-selector-card" data-age="3+" data-emoji="🎨">
+            <span class="age-sel-emoji">🎨</span>
+            <span class="age-sel-label">3 anos ou mais</span>
+          </button>
+          <button class="age-selector-card" data-age="5+" data-emoji="🎒">
+            <span class="age-sel-emoji">🎒</span>
+            <span class="age-sel-label">5 anos ou mais</span>
+          </button>
+          <button class="age-selector-card" data-age="7+" data-emoji="🌟">
+            <span class="age-sel-emoji">🌟</span>
+            <span class="age-sel-label">7 anos ou mais</span>
+          </button>
+          <button class="age-selector-card age-selector-card--wide" data-age="viagem" data-emoji="🚗">
+            <span class="age-sel-emoji">🚗</span>
+            <span class="age-sel-label">Atividades para viagem</span>
+          </button>
+        </div>
       </div>
-      <div class="search-wrap">
-        <input class="search-input" id="act-search" type="search" placeholder="Buscar atividade..." autocomplete="off">
+
+      <!-- Passo 2: lista de atividades filtradas -->
+      <div id="act-list-view" style="display:none;">
+        <div class="act-list-header">
+          <button class="planner-back-btn" id="act-back-btn">
+            <svg width="7" height="12" viewBox="0 0 7 12" fill="none"><path d="M6 1L1 6l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Faixa etária
+          </button>
+          <span class="act-list-title" id="act-list-title"></span>
+        </div>
+        <div class="search-wrap">
+          <input class="search-input" id="act-search" type="search" placeholder="Buscar atividade..." autocomplete="off">
+        </div>
+        <div class="activities-grid" id="activities-grid"></div>
       </div>
-      <div class="age-filters" id="age-filter-row">
-        <button class="filter-pill active" data-age="all">Todas</button>
-        <button class="filter-pill" data-age="0-3m">0–3 m</button>
-        <button class="filter-pill" data-age="3-6m">3–6 m</button>
-        <button class="filter-pill" data-age="6-9m">6–9 m</button>
-        <button class="filter-pill" data-age="9-12m">9–12 m</button>
-        <button class="filter-pill" data-age="1-2a">1–2 a</button>
-        <button class="filter-pill" data-age="2+">2+ anos</button>
-        <button class="filter-pill" data-age="3+">3+ anos</button>
-        <button class="filter-pill" data-age="5+">5+ anos</button>
-        <button class="filter-pill" data-age="7+">7+ anos</button>
-        <button class="filter-pill" data-age="viagem">🚗 Viagem</button>
-      </div>
-      <div class="activities-grid" id="activities-grid"></div>
     </section>
 
     <!-- ── Planner Tab ── -->
@@ -224,7 +267,7 @@
     <section class="tab-content" id="tab-receitas">
       <div class="section-header">
         <div class="section-title">Receitas</div>
-        <div class="section-subtitle">35 receitinhas saudáveis do ebook <em>Saúde na Lancheira</em></div>
+        <div class="section-subtitle">35 receitinhas saudáveis</div>
       </div>
       <div class="age-filters" id="recipe-filter-row">
         <button class="filter-pill active" data-cat="all">Todas</button>

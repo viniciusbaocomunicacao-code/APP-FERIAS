@@ -72,7 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
   bindShowsTab();
   bindModals();
   bindSettingsModal();
-  renderActivities();
   renderPlannerWeek();
   renderRecipes();
   renderShows();
@@ -165,22 +164,45 @@ function switchTab(tab) {
 
 // ── Activities Tab ─────────────────────────────────────
 function bindActivitiesTab() {
+  document.getElementById('act-age-selector').addEventListener('click', e => {
+    const card = e.target.closest('.age-selector-card');
+    if (!card) return;
+    state.ageFilter  = card.dataset.age;
+    state.actSearch  = '';
+    showActListView(card.dataset.age);
+  });
+
+  document.getElementById('act-back-btn').addEventListener('click', () => {
+    showActSelectorView();
+  });
+
   document.getElementById('act-search').addEventListener('input', e => {
     state.actSearch = e.target.value;
     renderActivities();
   });
-  document.getElementById('age-filter-row').addEventListener('click', e => {
-    const pill = e.target.closest('.filter-pill');
-    if (!pill) return;
-    state.ageFilter = pill.dataset.age;
-    document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
-    pill.classList.add('active');
-    renderActivities();
-  });
+
   document.getElementById('activities-grid').addEventListener('click', e => {
     const card = e.target.closest('.activity-card');
     if (card) openActivityModal(parseInt(card.dataset.id));
   });
+}
+
+function showActListView(ageKey) {
+  const group = AGE_GROUPS.find(g => g.key === ageKey);
+  document.getElementById('act-list-title').textContent = group ? group.label : ageKey;
+  document.getElementById('act-search').value = '';
+  document.getElementById('act-age-selector').style.display = 'none';
+  document.getElementById('act-list-view').style.display    = '';
+  renderActivities();
+  document.getElementById('tab-atividades').scrollTop = 0;
+}
+
+function showActSelectorView() {
+  state.actSearch = '';
+  state.ageFilter = 'all';
+  document.getElementById('act-list-view').style.display    = 'none';
+  document.getElementById('act-age-selector').style.display = '';
+  document.getElementById('tab-atividades').scrollTop = 0;
 }
 
 function renderActivities() {
