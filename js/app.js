@@ -1043,9 +1043,13 @@ function openShowDetail(id) {
 
   const dur = show.averageDuration || show.averageEpisodeDuration;
 
+  const bannerStyle = show.thumbnail
+    ? `background-image:url('${show.thumbnail}');background-size:cover;background-position:center top`
+    : `background:linear-gradient(160deg,${m.bgColor},${m.bgColor}cc)`;
+
   document.getElementById('shows-detail-content').innerHTML = `
-    <div class="detail-banner" style="background:linear-gradient(160deg,${m.bgColor},${m.bgColor}cc)">
-      <div class="detail-banner-emoji">${show.emoji}</div>
+    <div class="detail-banner" style="${bannerStyle}">
+      ${show.thumbnail ? '' : `<div class="detail-banner-emoji">${show.emoji}</div>`}
       <button class="detail-fav-btn${fav ? ' active' : ''}" data-id="${id}">${fav ? '♥' : '♡'}</button>
     </div>
     <div class="detail-body">
