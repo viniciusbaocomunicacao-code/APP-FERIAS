@@ -16,8 +16,11 @@ auth.onAuthStateChanged(user => {
   if (user) {
     loginScreen.style.display = 'none';
     appEl.style.display = '';
+    const firstName = user.displayName ? user.displayName.split(' ')[0] : null;
     const nameEl = document.getElementById('user-display-name');
-    if (nameEl) nameEl.textContent = user.displayName ? user.displayName.split(' ')[0] : user.email;
+    if (nameEl) nameEl.textContent = firstName || user.email;
+    const greetingEl = document.getElementById('home-greeting-title');
+    if (greetingEl) greetingEl.textContent = firstName ? `Olá, ${firstName}! 👋` : 'Olá! 👋';
     const emailEl = document.getElementById('settings-account-email');
     if (emailEl) emailEl.textContent = user.email;
   } else {
