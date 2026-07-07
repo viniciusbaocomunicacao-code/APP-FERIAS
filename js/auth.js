@@ -38,10 +38,19 @@ function signInWithEmail(e) {
   btn.disabled    = true;
   btn.textContent = 'Entrando...';
   auth.signInWithEmailAndPassword(email, password).catch(err => {
+    console.error('Erro de login:', err.code, err.message);
     btn.disabled    = false;
     btn.textContent = 'Entrar';
-    const invalid = ['auth/user-not-found','auth/wrong-password','auth/invalid-credential','auth/invalid-email'];
-    showLoginError(invalid.includes(err.code) ? 'Email ou senha incorretos.' : 'Erro ao entrar. Tente novamente.');
+    const messages = {
+      'auth/user-not-found':        'Email ou senha incorretos.',
+      'auth/wrong-password':        'Email ou senha incorretos.',
+      'auth/invalid-credential':    'Email ou senha incorretos.',
+      'auth/invalid-email':         'Email ou senha incorretos.',
+      'auth/too-many-requests':     'Muitas tentativas seguidas. Aguarde alguns minutos ou toque em "Esqueci minha senha" para criar uma nova.',
+      'auth/user-disabled':         'Esta conta foi desativada. Entre em contato com o suporte.',
+      'auth/network-request-failed':'Falha de conexão. Verifique sua internet e tente novamente.',
+    };
+    showLoginError(messages[err.code] || 'Erro ao entrar. Tente novamente.');
   });
 }
 
