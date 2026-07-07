@@ -39,7 +39,9 @@ const MONTH_NAMES     = ['jan','fev','mar','abr','mai','jun','jul','ago','set','
 const FULL_MONTHS     = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
 const HOURS = ['07:00','08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00','21:00'];
 
-function dateKey(d) { return d.toISOString().slice(0,10); }
+function dateKey(d) {
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+}
 function isToday(d) { return dateKey(d) === dateKey(new Date()); }
 
 function getWeekDates(offset) {
@@ -1101,10 +1103,10 @@ function openShowDetail(id) {
 
       ${extraBadges ? `<div class="detail-extra-badges">${extraBadges}</div>` : ''}
 
-      <a class="detail-cta-btn" href="${show.justWatchUrl}" target="_blank" rel="noopener noreferrer">
+      ${show.justWatchUrl ? `<a class="detail-cta-btn" href="${show.justWatchUrl}" target="_blank" rel="noopener noreferrer">
         Ver onde assistir →
       </a>
-      <p class="detail-cta-note">Os catálogos dos streamings podem mudar. Confira a disponibilidade atual.</p>
+      <p class="detail-cta-note">Os catálogos dos streamings podem mudar. Confira a disponibilidade atual.</p>` : ''}
     </div>
   `;
 

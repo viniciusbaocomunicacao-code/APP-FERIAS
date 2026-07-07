@@ -26,9 +26,9 @@ module.exports = async (req, res) => {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  // Validar token do Hotmart
+  // Validar token do Hotmart (falha fechado se o env não estiver configurado)
   const token = req.query.hottok;
-  if (process.env.HOTMART_TOKEN && token !== process.env.HOTMART_TOKEN) {
+  if (!process.env.HOTMART_TOKEN || token !== process.env.HOTMART_TOKEN) {
     return res.status(401).json({ error: 'Token inválido' });
   }
 
