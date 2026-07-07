@@ -2180,6 +2180,57 @@ main {
   cursor: not-allowed;
 }
 
+.login-forgot-btn {
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 12px 0 4px;
+  font-family: inherit;
+  text-align: center;
+}
+
+.login-forgot-btn:active {
+  opacity: 0.7;
+}
+
+.login-forgot-feedback {
+  font-size: 13px;
+  text-align: center;
+  padding: 6px 0;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.login-forgot-feedback.success {
+  color: #2E7D32;
+  background: #E8F5E9;
+  padding: 10px 14px;
+}
+
+.login-forgot-feedback.error {
+  color: #C62828;
+  background: #FFEBEE;
+  padding: 10px 14px;
+}
+
+.login-first-time {
+  margin-top: 20px;
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.5;
+  padding: 12px 4px;
+  border-top: 1px solid var(--border);
+}
+
+.login-first-time strong {
+  color: var(--text);
+}
+
 /* ── Header logout button ─────────────────────────────── */
 .header-logout-btn {
   display: flex;

@@ -74,3 +74,36 @@ function showLoginError(msg) {
   el.textContent  = msg;
   el.style.display = '';
 }
+
+function handleForgotPassword() {
+  const email    = document.getElementById('login-email').value.trim();
+  const feedback = document.getElementById('forgot-feedback');
+  const btn      = document.getElementById('forgot-btn');
+
+  if (!email) {
+    feedback.textContent = 'Digite seu email no campo acima e tente novamente.';
+    feedback.className   = 'login-forgot-feedback error';
+    feedback.style.display = '';
+    return;
+  }
+
+  btn.disabled    = true;
+  btn.textContent = 'Enviando...';
+  feedback.style.display = 'none';
+
+  auth.sendPasswordResetEmail(email)
+    .then(() => {
+      feedback.textContent = `✓ Link enviado para ${email}. Verifique sua caixa de entrada e spam.`;
+      feedback.className   = 'login-forgot-feedback success';
+      feedback.style.display = '';
+    })
+    .catch(() => {
+      feedback.textContent = 'Não encontramos esse email. Verifique se é o mesmo usado na compra.';
+      feedback.className   = 'login-forgot-feedback error';
+      feedback.style.display = '';
+    })
+    .finally(() => {
+      btn.disabled    = false;
+      btn.textContent = 'Esqueci minha senha';
+    });
+}
